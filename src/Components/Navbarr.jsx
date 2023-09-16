@@ -12,9 +12,8 @@ import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
 import InputBase from '@mui/material/InputBase';
 import SearchIcon from '@mui/icons-material/Search';
-import { styled, alpha } from '@mui/material/styles';
+import { styled} from '@mui/material/styles';
 import logo from '../Images/myntralogo.png'
-import { grey } from '@mui/material/colors';
 const pages = ['MEN', 'WOMEN', 'KIDS','HOME & LIVING', 'BEAUTY'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
