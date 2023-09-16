@@ -10,7 +10,7 @@ const Container2 = () => {
   return (
     <div>
       <div className="con1header">
-        <h2>MEDAL WORTHY BRANDS TO BAG</h2>
+        <h2>BIGGEST DEALS ON TOP BRANDS</h2>
       </div>
 
       <div className="p-24 w-full">
