@@ -1,5 +1,4 @@
 import * as React from "react";
-// import Button from "@mui/material/Button";
 import { Grid } from "@mui/material";
 import { Card } from "@mui/material";
 import myntra10 from "../Images/myntra10.webp";
