@@ -10,9 +10,56 @@ import Avatar from '@mui/material/Avatar';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
+import InputBase from '@mui/material/InputBase';
+import SearchIcon from '@mui/icons-material/Search';
+import { styled, alpha } from '@mui/material/styles';
 import logo from '../Images/myntralogo.png'
-const pages = ['Products', 'Pricing', 'Blog'];
+import { grey } from '@mui/material/colors';
+const pages = ['MEN', 'WOMEN', 'KIDS','HOME & LIVING', 'BEAUTY'];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+const Search = styled('div')(({ theme }) => ({
+    position: 'relative',
+    borderRadius: theme.shape.borderRadius,
+    backgroundColor: "grey",
+    '&:hover': {
+      backgroundColor: "grey",
+    },
+    marginLeft: 0,
+    marginRight: 17,
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      marginLeft: theme.spacing(1),
+      width: 'auto',
+    },
+  }));
+  
+  const SearchIconWrapper = styled('div')(({ theme }) => ({
+    padding: theme.spacing(0, 2),
+    height: '100%',
+    position: 'absolute',
+    pointerEvents: 'none',
+    display: 'flex',
+    alignItems: 'center',
+    justifyContent: 'center',
+  }));
+
+  const StyledInputBase = styled(InputBase)(({ theme }) => ({
+    color: 'inherit',
+    '& .MuiInputBase-input': {
+      padding: theme.spacing(1, 1, 1, 0),
+      // vertical padding + font size from searchIcon
+      paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+      transition: theme.transitions.create('width'),
+      width: '100%',
+      [theme.breakpoints.up('sm')]: {
+        width: '12ch',
+        '&:focus': {
+          width: '20ch',
+        },
+      },
+    },
+  }));
 
 function Navbarr() {
   const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -34,7 +81,7 @@ function Navbarr() {
   };
 
   return (
-    <AppBar position="static">
+    <AppBar position="static" style={{background:'white'}}>
       <Container maxWidth="xl">
         <Toolbar disableGutters>
           {/* <AdbIcon sx={{ display: { xs: 'none', md: 'flex' }, mr: 1 }} /> */}
@@ -63,7 +110,7 @@ function Navbarr() {
               aria-controls="menu-appbar"
               aria-haspopup="true"
               onClick={handleOpenNavMenu}
-              color="inherit"
+              color="black"
             >
               {/* <MenuIcon /> */}
             </IconButton>
@@ -83,11 +130,12 @@ function Navbarr() {
               onClose={handleCloseNavMenu}
               sx={{
                 display: { xs: 'block', md: 'none' },
+                color:'black'
               }}
             >
               {pages.map((page) => (
-                <MenuItem key={page} onClick={handleCloseNavMenu}>
-                  <Typography textAlign="center">{page}</Typography>
+                <MenuItem key={page} onClick={handleCloseNavMenu} >
+                  <Typography textAlign="center" fontFamily='sans-serif'>{page}</Typography>
                 </MenuItem>
               ))}
             </Menu>
@@ -114,6 +162,7 @@ function Navbarr() {
           <Box sx={{ flexGrow: 1, display: { xs: 'none', md: 'flex' } }}>
             {pages.map((page) => (
               <Button
+                 style={{color:'black'}}
                 key={page}
                 onClick={handleCloseNavMenu}
                 sx={{ my: 2, color: 'white', display: 'block' }}
@@ -122,6 +171,15 @@ function Navbarr() {
               </Button>
             ))}
           </Box>
+          <Search>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </Search>
 
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
