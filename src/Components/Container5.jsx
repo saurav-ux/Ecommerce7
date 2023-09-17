@@ -1,16 +1,16 @@
 import * as React from "react";
 import { Grid } from "@mui/material";
 import { Card } from "@mui/material";
-import myntra36 from "../Images/myntra36.webp";
-import myntra37 from "../Images/myntra37.webp";
-import myntra38 from "../Images/myntra38.webp";
-import myntra39 from "../Images/myntra39.webp";
-import myntra40 from "../Images/myntra40.webp";
-import myntra41 from "../Images/myntra41.webp";
-import myntra42 from "../Images/myntra42.webp";
-import myntra43 from "../Images/myntra43.webp";
-import myntra44 from "../Images/myntra44.webp";
-import myntra45 from "../Images/myntra45.webp";
+import myntra46 from "../Images/myntra46.webp";
+import myntra47 from "../Images/myntra47.webp";
+import myntra48 from "../Images/myntra48.jpg";
+import myntra49 from "../Images/myntra49.webp";
+import myntra50 from "../Images/myntra50.webp";
+import myntra51 from "../Images/myntra51.webp";
+import myntra52 from "../Images/myntra52.webp";
+import myntra53 from "../Images/myntra53.webp";
+import myntra54 from "../Images/myntra54.jpg";
+import myntra55 from "../Images/myntra55.jpg";
 
 const Container5 = () => {
     var off = 0,
@@ -19,7 +19,7 @@ const Container5 = () => {
   return (
     <div>
       <div className="con1header">
-      <h2>TRENDING IN INDIAN WEAR</h2>
+      <h2>TRENDING IN ACCESSORIES</h2>
       </div>
 
       <div className="p-24 w-full">
@@ -27,7 +27,7 @@ const Container5 = () => {
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <Card className="cardSize">
               <div class="wishimg items_img">
-                <img src={myntra41} alt="" />
+                <img src={myntra51} alt="" />
               </div>
 
               <p>
@@ -42,7 +42,7 @@ const Container5 = () => {
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <Card className="cardSize">
               <div class="wishimg items_img">
-                <img src={myntra42} alt="" />
+                <img src={myntra52} alt="" />
               </div>
 
               <p>
@@ -57,7 +57,7 @@ const Container5 = () => {
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <Card className="cardSize">
               <div class="wishimg items_img">
-                <img src={myntra43} alt="" />
+                <img src={myntra53} alt="" />
               </div>
 
               <p>
@@ -72,7 +72,7 @@ const Container5 = () => {
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <Card className="cardSize">
               <div class="wishimg items_img">
-                <img src={myntra44} alt="" />
+                <img src={myntra54} alt="" />
               </div>
 
               <p>
@@ -87,7 +87,7 @@ const Container5 = () => {
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <Card className="cardSize">
               <div class="wishimg items_img">
-                <img src={myntra45} alt="" />
+                <img src={myntra55} alt="" />
               </div>
 
               <p>
@@ -102,7 +102,7 @@ const Container5 = () => {
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <Card className="cardSize">
               <div class="wishimg items_img">
-                <img src={myntra37} alt="" />
+                <img src={myntra47} alt="" />
               </div>
 
               <p>
@@ -124,7 +124,7 @@ const Container5 = () => {
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <Card className="cardSize">
               <div class="wishimg items_img">
-                <img src={myntra36} alt="" />
+                <img src={myntra46} alt="" />
               </div>
 
               <p>
@@ -139,7 +139,7 @@ const Container5 = () => {
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <Card className="cardSize">
               <div class="wishimg items_img">
-                <img src={myntra37} alt="" />
+                <img src={myntra47} alt="" />
               </div>
 
               <p>
@@ -154,7 +154,7 @@ const Container5 = () => {
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <Card className="cardSize">
               <div class="wishimg items_img">
-                <img src={myntra38} alt="" />
+                <img src={myntra48} alt="" />
               </div>
 
               <p>
@@ -169,7 +169,7 @@ const Container5 = () => {
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <Card className="cardSize">
               <div class="wishimg items_img">
-                <img src={myntra39} alt="" />
+                <img src={myntra49} alt="" />
               </div>
 
               <p>
@@ -184,7 +184,7 @@ const Container5 = () => {
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <Card className="cardSize">
               <div class="wishimg items_img">
-                <img src={myntra40} alt="" />
+                <img src={myntra50} alt="" />
               </div>
 
               <p>
@@ -199,7 +199,7 @@ const Container5 = () => {
           <Grid item xs={12} sm={6} md={4} lg={2}>
             <Card className="cardSize">
               <div class="wishimg items_img">
-                <img src={myntra41} alt="" />
+                <img src={myntra51} alt="" />
               </div>
 
               <p>

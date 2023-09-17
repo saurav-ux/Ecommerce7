@@ -32,3 +32,93 @@
     transition: .3s;
     
 }
+/* Font Icon */
+.fab{
+  margin: 20px;
+cursor: pointer;
+  font-size: 30px;
+  color: black;
+}
+.fas{
+  margin: 20px;
+ font-size: 30px;
+ color: black;
+ }
+
+.fas:hover{
+  color: rgb(250, 120, 142);
+  transition: 0.3s;
+}
+.fab:hover{
+  color: rgb(250, 120, 142);
+  transition: 0.3s;
+}
+
+
+.con{
+  margin-left: 40px;
+}
+
+/* Footer */
+
+.options{
+  display: flex;
+  background-color: rgb(240, 239, 239);
+  cursor: pointer;
+}
+li{
+  list-style: none;
+}
+
+.im img{
+  width: 35%;
+  padding: 3px;
+}
+.detail{
+  margin: 50px;
+width: 25%;
+ 
+}
+ul{
+  font-weight: bold;
+margin-left: 5px;
+}
+li{
+  margin-left: 41px;
+}
+.detail .fab{
+  font-size: 25px;
+  margin: 5px;
+}
+.popular{
+  margin: 40px;
+}
+.popular a{
+  font-size: 20px;
+color: gray;
+}
+.popular a:hover{
+  text-decoration: none;
+  color: hotpink;
+  transition: .3s;
+}
+.contact{
+  display: flex;
+  cursor: pointer;
+ 
+}
+.c1{
+  width: 90%;
+  margin: 40px;
+}
+
+.contact .c1 h4{
+  color: blue;
+}
+.c2{
+  float: right;
+  margin: 40px;
+}
+.con{
+  margin-left: 40px;
+}
