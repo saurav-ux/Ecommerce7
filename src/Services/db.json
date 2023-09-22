@@ -10,35 +10,35 @@
     {
       "id": 2,
       "off": 20,
-      "price": 300,
+      "price": 400,
       "cutprice":60,
       "imgName":"Image\\myntra11.webp"
     },
     {
       "id": 3,
       "off": 20,
-      "price": 300,
+      "price": 560,
       "cutprice":60,
       "imgName":"Image\\myntra12.webp"
     },
     {
       "id": 4,
       "off": 20,
-      "price": 300,
+      "price": 100,
       "cutprice":60,
       "imgName":"Image\\myntra13.webp"
     },
     {
       "id": 5,
       "off": 20,
-      "price": 300,
+      "price": 540,
       "cutprice":60,
       "imgName":"Image\\myntra14.webp"
     },
     {
       "id": 6,
       "off": 20,
-      "price": 300,
+      "price": 170,
       "cutprice":60,
       "imgName":"Image\\myntra13.webp"
     }  
