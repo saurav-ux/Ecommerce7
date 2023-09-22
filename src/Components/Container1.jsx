@@ -2,20 +2,24 @@ import * as React from "react";
 import { Grid } from "@mui/material";
 import { Card } from "@mui/material";
 import { useContainer1apiDataQuery } from "../Services/commentttApi";
-
+import { useSelector ,useDispatch} from "react-redux";
+import { totalCost } from "../Services/containerSlice";
 const Container1 = () => {
-
+  const count = useSelector((state)=>state.containerr.count)
+  const dispatch = useDispatch()
+  console.log("count",count)
   const [netprice,setNetprice] = React.useState(0)
 
   //-------------------RTK QueryFetch-------------------------
   const { data: containerData, isLoading ,isError} = useContainer1apiDataQuery();
   // console.log("data",containerData[0].imgName)
-
+ 
   const handebag = (price)=>{
     setNetprice(netprice+price)
 
    console.log("price",netprice)
   }
+
   return (
     <div>
       <div className="con1header">
@@ -36,7 +40,7 @@ const Container1 = () => {
                     Rs.{row.price} <del> Rs.{row.cutprice} </del>
                     <cite> (Rs. {row.off} OFF)</cite>
                   </p>
-                  <div class="move" onClick={()=>handebag(row.price)}>
+                  <div class="move" onClick={()=>dispatch(totalCost(row.price))}>
                     <h4>MOVE TO BAG</h4>
                   </div>
                 </Card>
