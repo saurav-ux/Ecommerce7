@@ -3,9 +3,9 @@ import { Grid } from "@mui/material";
 import { Card } from "@mui/material";
 import { useContainer1apiDataQuery } from "../Services/commentttApi";
 import { useSelector ,useDispatch} from "react-redux";
-import { totalCost } from "../Services/containerSlice";
+import { addItem, totalCost } from "../Services/containerSlice";
 const Container1 = () => {
-  const count = useSelector((state)=>state.containerr.count)
+  const count = useSelector((state)=>state.containerr.addproduct)
   const dispatch = useDispatch()
   console.log("count",count)
   const [netprice,setNetprice] = React.useState(0)
@@ -40,7 +40,7 @@ const Container1 = () => {
                     Rs.{row.price} <del> Rs.{row.cutprice} </del>
                     <cite> (Rs. {row.off} OFF)</cite>
                   </p>
-                  <div class="move" onClick={()=>dispatch(totalCost(row.price))}>
+                  <div class="move" onClick={()=>dispatch(addItem({price: row.price , imgName: row.imgName, cutprice: row.cutprice, off: row.off}))}>
                     <h4>MOVE TO BAG</h4>
                   </div>
                 </Card>
