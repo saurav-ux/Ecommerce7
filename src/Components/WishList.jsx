@@ -6,12 +6,6 @@ import { useSelector } from "react-redux";
 const WishList = () => {
 
     const containerData = useSelector((state)=>state.containerr.addproduct)
-    // const dispatch = useDispatch()
-    // console.log("count",count)
-    // const [netprice,setNetprice] = React.useState(0)
-  
-    //-------------------RTK QueryFetch-------------------------
-    // const { data: containerData, isLoading ,isError} = useContainer1apiDataQuery();
   return (
     <div className='checkout'>
       Saurav Anand

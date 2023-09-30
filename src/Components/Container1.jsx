@@ -2,30 +2,27 @@ import * as React from "react";
 import { Grid } from "@mui/material";
 import { Card } from "@mui/material";
 import { useContainer1apiDataQuery } from "../Services/commentttApi";
-import { useSelector ,useDispatch} from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 import { addItem } from "../Services/containerSlice";
 const Container1 = () => {
-  const count = useSelector((state)=>state.containerr.addproduct)
-  const dispatch = useDispatch()
-  console.log("count",count)
-  const [netprice,setNetprice] = React.useState(0)
+  const count = useSelector((state) => state.containerr.addproduct);
+  const dispatch = useDispatch();
+  console.log("count", count);
 
   //-------------------RTK QueryFetch-------------------------
-  const { data: containerData, isLoading ,isError} = useContainer1apiDataQuery();
+  const {
+    data: containerData,
+    isLoading,
+    isError,
+  } = useContainer1apiDataQuery();
   // console.log("data",containerData[0].imgName)
- 
-  const handebag = (price)=>{
-    setNetprice(netprice+price)
-
-   console.log("price",netprice)
-  }
 
   return (
     <div id="content1">
       <div className="con1header">
         <h2>MEDAL WORTHY BRANDS TO BAG </h2>
       </div>
-      {isError? "Somthing Went Wrong": ""}
+      {isError ? "Somthing Went Wrong" : ""}
       {isLoading ? "Loading..." : ""}
       <div className="p-24 w-full">
         <Grid container spacing={3}>
@@ -40,7 +37,19 @@ const Container1 = () => {
                     Rs.{row.price} <del> Rs.{row.cutprice} </del>
                     <cite> (Rs. {row.off} OFF)</cite>
                   </p>
-                  <div class="move" onClick={()=>dispatch(addItem({price: row.price , imgName: row.imgName, cutprice: row.cutprice, off: row.off}))}>
+                  <div
+                    class="move"
+                    onClick={() =>
+                      dispatch(
+                        addItem({
+                          price: row.price,
+                          imgName: row.imgName,
+                          cutprice: row.cutprice,
+                          off: row.off,
+                        })
+                      )
+                    }
+                  >
                     <h4>MOVE TO BAG</h4>
                   </div>
                 </Card>
