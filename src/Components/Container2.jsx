@@ -8,7 +8,7 @@ import myntra18 from "../Images/myntra18.webp";
 import myntra19 from "../Images/myntra19.jpg";
 const Container2 = () => {
   return (
-    <div>
+    <div id="content2">
       <div className="con1header">
         <h2>BIGGEST DEALS ON TOP BRANDS</h2>
       </div>

@@ -3,7 +3,7 @@ import { Grid } from "@mui/material";
 import { Card } from "@mui/material";
 import { useContainer1apiDataQuery } from "../Services/commentttApi";
 import { useSelector ,useDispatch} from "react-redux";
-import { addItem, totalCost } from "../Services/containerSlice";
+import { addItem } from "../Services/containerSlice";
 const Container1 = () => {
   const count = useSelector((state)=>state.containerr.addproduct)
   const dispatch = useDispatch()
@@ -21,7 +21,7 @@ const Container1 = () => {
   }
 
   return (
-    <div>
+    <div id="content1">
       <div className="con1header">
         <h2>MEDAL WORTHY BRANDS TO BAG </h2>
       </div>
@@ -31,7 +31,7 @@ const Container1 = () => {
         <Grid container spacing={3}>
           {containerData?.map((row) => {
             return (
-              <Grid item xs={12} sm={6} md={4} lg={2}>
+              <Grid item xs={12} sm={6} md={4} lg={2} key={row.id}>
                 <Card className="cardSize">
                   <div class="wishimg items_img">
                     <img src={row.imgName} alt="" />
