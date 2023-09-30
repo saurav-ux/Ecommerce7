@@ -16,19 +16,6 @@ import {
   Routes,
 } from "react-router-dom";
 function App() {
-  // return (
-  //   <>
-  //   <Navbarr/>
-  //   <Crousel1/>
-  //   <Container1/>
-  //   <Container2/>
-  //   <Container3/>
-  //   <Container4/>
-  //   <Container5/>
-  //   <WishList/>
-  //   <Footer/>
-  //   </>
-  // );
 
   return (
     <>
