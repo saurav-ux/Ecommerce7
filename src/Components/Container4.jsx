@@ -17,7 +17,7 @@ const Container4 = () => {
     cutprice = 0,
     price = 9;
   return (
-    <div>
+    <div id="content4">
       <div className="con1header">
       <h2>TRENDING IN INDIAN WEAR</h2>
       </div>

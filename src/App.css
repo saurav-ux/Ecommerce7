@@ -1,3 +1,96 @@
+
+     /* navbar */
+     #logo2{
+      width: 70%;
+      height: 40%;   
+    }
+    
+    .navbar{
+     background-color: white;
+      box-shadow: 0px 3px 15px 0px rgb(224, 224, 224);   
+      z-index: -1;;
+         
+                                  }
+                                  
+     .bor{
+       border-style: solid;
+       border-width: medium;
+       border-top-color: white;
+       border-right-color: white;
+       border-left-color: white;
+       border-bottom-color: white;
+       text-decoration: none;
+     }
+     .bor:hover{
+       border-style: solid;
+       border-width: medium;
+       transition: 0.6s;
+       border-top-color: white;
+       border-right-color: white;
+       border-left-color: white;
+       border-bottom-color: rgb(250, 120, 142);
+      
+     }
+     .a:hover{
+       border-bottom-color:#F28273;
+     }
+     .b:hover{
+       border-bottom-color:#FB56C1;
+     }
+     .c:hover{
+       border-bottom-color:#F26A10;
+     }
+     .d:hover{
+       border-bottom-color:#F5CD45;
+     }
+     .e:hover{
+       border-bottom-color:#10B7AF;
+     }
+     .fas{
+      margin: 30.55px;
+     font-size: 20px;
+     color: black;
+     }
+     #p1{
+       margin: 20px;
+     cursor: pointer;
+       font-size: 30px;
+       color: black;
+     }
+     #p1:hover{
+       color: rgb(250, 120, 142);
+       transition: 0.3s;
+     }
+     .fab{
+                                    margin: 20px;
+                                  cursor: pointer;
+                                    font-size: 30px;
+                                    color: black;
+                                  }
+ .nav_side  input{
+ 
+   width: 350px;
+   height: 35px; 
+   border-radius: 5px; 
+   background-color: rgb(233, 233, 233);  
+   outline: none;
+   border: none;
+ }
+ .tool{
+   float: right;   
+   margin-left: 30px;
+ }
+ .fas:hover{
+   color: rgb(250, 120, 142);
+   transition: 0.3s;
+ }
+ .fab:hover{
+   color: rgb(250, 120, 142);
+   transition: 0.3s;
+ }
+                                  
+
+
 .con1header{
   font-size: 10px;
   padding: 4em;

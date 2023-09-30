@@ -17,7 +17,7 @@ const Container5 = () => {
     cutprice = 0,
     price = 9;
   return (
-    <div>
+    <div id="content5">
       <div className="con1header">
       <h2>TRENDING IN ACCESSORIES</h2>
       </div>
