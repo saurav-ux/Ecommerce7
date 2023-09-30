@@ -14,7 +14,7 @@ import myntra34 from "../Images/myntra34.webp";
 
 const Container3 = () => {
     return (
-        <div>
+        <div  id="content3">
           <div className="con1header">
             <h2>CATEGORIES TO BAG</h2>
           </div>
