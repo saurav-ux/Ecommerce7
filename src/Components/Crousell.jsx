@@ -7,7 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 function Crousel1() {
   return (
     <div id="crousel">
-      {/* <br /> <br /> <br /> <br /> */}
+      <br /> <br /> <br /> <br />
       <Carousel fade id="crousel">
         <Carousel.Item>
           <img className="d-block w-100" src={myntra1} alt="First slide" />

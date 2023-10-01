@@ -18,7 +18,7 @@ const containerSlice = createSlice({
             }
         },
         removeItem:(state,action)=>{
-            console.log("action.payload",action.payload)
+            // console.log("action.payload",action.payload)
            const index = state.addproduct.findIndex(
 
             (basketItem)=>basketItem.id === action.payload

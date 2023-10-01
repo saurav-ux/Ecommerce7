@@ -33,11 +33,11 @@ const Container1 = () => {
                   <div class="wishimg items_img">
                     <img src={row.imgName} alt="" />
                   </div>
-                  <p>
+                  {/* <p>
                     Rs.{row.price} <del> Rs.{row.cutprice} </del>
                     <cite> (Rs. {row.off} OFF)</cite>
-                  </p>
-                  <div
+                  </p> */}
+                  {/* <div
                     class="move"
                     onClick={() =>
                       dispatch(
@@ -52,7 +52,7 @@ const Container1 = () => {
                     }
                   >
                     <h4>MOVE TO BAG</h4>
-                  </div>
+                  </div> */}
                 </Card>
               </Grid>
             );

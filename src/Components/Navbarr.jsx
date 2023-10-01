@@ -63,7 +63,7 @@ function Navbarr() {
             <dfn title="Wishlist">
               {" "}
               <a href="wishlist.html">
-                <i class="fas fa-heart"> {count.length}</i>
+                <i class="fas fa-heart"> {count.length==0? " " :count.length}</i>
               </a>{" "}
             </dfn>
           </Link>
