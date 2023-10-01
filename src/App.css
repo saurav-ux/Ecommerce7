@@ -87,7 +87,9 @@
   outline: none;
   border: none;
 }
-
+.noImage{
+  width: 100%;
+}
 .tool {
   float: right;
   margin-left: 30px;

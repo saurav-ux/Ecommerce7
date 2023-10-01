@@ -2,11 +2,19 @@ import { Grid } from "@mui/material";
 import { Card } from "@mui/material";
 import { useSelector, useDispatch } from "react-redux";
 import { removeItem } from "../Services/containerSlice";
+import noImage from '../Images/noItem.avif'
 const WishList = () => {
   const dispatch = useDispatch();
   const containerData = useSelector((state) => state.containerr.addproduct);
   return (
-    <div className="checkout">
+    <>
+    {containerData.length==0
+    ?
+    <div >
+    <img src={noImage} className="noImage"/>
+    </div>
+    :   
+    <div className="checkout"style={{margin:25}}>
       <br /> <br /> <br /> <br />
       <br />
       <div className="p-24 w-full">
@@ -37,6 +45,8 @@ const WishList = () => {
         </Grid>
       </div>
     </div>
+}
+    </>
   );
 };
 
