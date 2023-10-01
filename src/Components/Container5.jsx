@@ -11,8 +11,18 @@ import myntra52 from "../Images/myntra52.webp";
 import myntra53 from "../Images/myntra53.webp";
 import myntra54 from "../Images/myntra54.jpg";
 import myntra55 from "../Images/myntra55.jpg";
-
+import { useContainer5apiDataQuery } from "../Services/commentttApi";
+import { addItem } from "../Services/containerSlice";
+import { useSelector,useDispatch } from "react-redux";
 const Container5 = () => {
+  const dispatch = useDispatch()
+
+    //-------------------RTK QueryFetch-------------------------
+    const {
+      data: containerData,
+      isLoading,
+      isError,
+    } = useContainer5apiDataQuery();
     var off = 0,
     cutprice = 0,
     price = 9;
@@ -21,198 +31,46 @@ const Container5 = () => {
       <div className="con1header">
       <h2>TRENDING IN ACCESSORIES</h2>
       </div>
+      {isError ? "Somthing Went Wrong" : ""}
+      {isLoading ? "Loading..." : ""}
 
-      <div className="p-24 w-full">
+       <div className="p-24 w-full">
         <Grid container spacing={3}>
-          <Grid item xs={12} sm={6} md={4} lg={2}>
-            <Card className="cardSize">
-              <div class="wishimg items_img">
-                <img src={myntra51} alt="" />
-              </div>
-
-              <p>
-                Rs.{price} <del> Rs.{cutprice} </del>
-                <cite> (Rs. {off} OFF)</cite>
-              </p>
-              <div class="move">
-                <h4>MOVE TO BAG</h4>
-              </div>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={2}>
-            <Card className="cardSize">
-              <div class="wishimg items_img">
-                <img src={myntra52} alt="" />
-              </div>
-
-              <p>
-                Rs.{price} <del> Rs.{cutprice} </del>
-                <cite> (Rs. {off} OFF)</cite>
-              </p>
-              <div class="move">
-                <h4>MOVE TO BAG</h4>
-              </div>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={2}>
-            <Card className="cardSize">
-              <div class="wishimg items_img">
-                <img src={myntra53} alt="" />
-              </div>
-
-              <p>
-                Rs.{price} <del> Rs.{cutprice} </del>
-                <cite> (Rs. {off} OFF)</cite>
-              </p>
-              <div class="move">
-                <h4>MOVE TO BAG</h4>
-              </div>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={2}>
-            <Card className="cardSize">
-              <div class="wishimg items_img">
-                <img src={myntra54} alt="" />
-              </div>
-
-              <p>
-                Rs.{price} <del> Rs.{cutprice} </del>
-                <cite> (Rs. {off} OFF)</cite>
-              </p>
-              <div class="move">
-                <h4>MOVE TO BAG</h4>
-              </div>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={2}>
-            <Card className="cardSize">
-              <div class="wishimg items_img">
-                <img src={myntra55} alt="" />
-              </div>
-
-              <p>
-                Rs.{price} <del> Rs.{cutprice} </del>
-                <cite> (Rs. {off} OFF)</cite>
-              </p>
-              <div class="move">
-                <h4>MOVE TO BAG</h4>
-              </div>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={2}>
-            <Card className="cardSize">
-              <div class="wishimg items_img">
-                <img src={myntra47} alt="" />
-              </div>
-
-              <p>
-                Rs.{price} <del> Rs.{cutprice} </del>
-                <cite> (Rs. {off} OFF)</cite>
-              </p>
-              <div class="move">
-                <h4>MOVE TO BAG</h4>
-              </div>
-            </Card>
-          </Grid>
+          {containerData?.map((row) => {
+            return (
+              <Grid item xs={12} sm={6} md={4} lg={2} key={row.id}>
+                <Card className="cardSize">
+                  <div class="wishimg items_img">
+                    <img src={row.imgName} alt="" />
+                  </div>
+                  <p>
+                    Rs.{row.price} <del> Rs.{row.cutprice} </del>
+                    <cite> (Rs. {row.off} OFF)</cite>
+                  </p>
+                  <div
+                    class="move"
+                    onClick={() =>
+                      dispatch(
+                        addItem({
+                          price: row.price,
+                          imgName: row.imgName,
+                          cutprice: row.cutprice,
+                          off: row.off,
+                        })
+                      )
+                    }
+                  >
+                    <h4>MOVE TO BAG</h4>
+                  </div>
+                </Card>
+              </Grid>
+            );
+          })}
         </Grid>
       </div>
 
       <br/><br/>
 
-      <div className="p-24 w-full">
-        <Grid container spacing={3}>
-          <Grid item xs={12} sm={6} md={4} lg={2}>
-            <Card className="cardSize">
-              <div class="wishimg items_img">
-                <img src={myntra46} alt="" />
-              </div>
-
-              <p>
-                Rs.{price} <del> Rs.{cutprice} </del>
-                <cite> (Rs. {off} OFF)</cite>
-              </p>
-              <div class="move">
-                <h4>MOVE TO BAG</h4>
-              </div>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={2}>
-            <Card className="cardSize">
-              <div class="wishimg items_img">
-                <img src={myntra47} alt="" />
-              </div>
-
-              <p>
-                Rs.{price} <del> Rs.{cutprice} </del>
-                <cite> (Rs. {off} OFF)</cite>
-              </p>
-              <div class="move">
-                <h4>MOVE TO BAG</h4>
-              </div>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={2}>
-            <Card className="cardSize">
-              <div class="wishimg items_img">
-                <img src={myntra48} alt="" />
-              </div>
-
-              <p>
-                Rs.{price} <del> Rs.{cutprice} </del>
-                <cite> (Rs. {off} OFF)</cite>
-              </p>
-              <div class="move">
-                <h4>MOVE TO BAG</h4>
-              </div>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={2}>
-            <Card className="cardSize">
-              <div class="wishimg items_img">
-                <img src={myntra49} alt="" />
-              </div>
-
-              <p>
-                Rs.{price} <del> Rs.{cutprice} </del>
-                <cite> (Rs. {off} OFF)</cite>
-              </p>
-              <div class="move">
-                <h4>MOVE TO BAG</h4>
-              </div>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={2}>
-            <Card className="cardSize">
-              <div class="wishimg items_img">
-                <img src={myntra50} alt="" />
-              </div>
-
-              <p>
-                Rs.{price} <del> Rs.{cutprice} </del>
-                <cite> (Rs. {off} OFF)</cite>
-              </p>
-              <div class="move">
-                <h4>MOVE TO BAG</h4>
-              </div>
-            </Card>
-          </Grid>
-          <Grid item xs={12} sm={6} md={4} lg={2}>
-            <Card className="cardSize">
-              <div class="wishimg items_img">
-                <img src={myntra51} alt="" />
-              </div>
-
-              <p>
-                Rs.{price} <del> Rs.{cutprice} </del>
-                <cite> (Rs. {off} OFF)</cite>
-              </p>
-              <div class="move">
-                <h4>MOVE TO BAG</h4>
-              </div>
-            </Card>
-          </Grid>
-        </Grid>
-      </div>
     </div>
   );
 }
