@@ -42,6 +42,7 @@ const Container1 = () => {
                     onClick={() =>
                       dispatch(
                         addItem({
+                          id:row.id,
                           price: row.price,
                           imgName: row.imgName,
                           cutprice: row.cutprice,

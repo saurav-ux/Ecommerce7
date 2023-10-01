@@ -1,234 +1,265 @@
+/* navbar */
+#logo2 {
+  width: 70%;
+  height: 40%;
+}
 
-     /* navbar */
-     #logo2{
-      width: 70%;
-      height: 40%;   
-    }
-    
-    .navbar{
-     background-color: white;
-      box-shadow: 0px 3px 15px 0px rgb(224, 224, 224);   
-      z-index: -1;;
-         
-                                  }
-                                  
-     .bor{
-       border-style: solid;
-       border-width: medium;
-       border-top-color: white;
-       border-right-color: white;
-       border-left-color: white;
-       border-bottom-color: white;
-       text-decoration: none;
-     }
-     .bor:hover{
-       border-style: solid;
-       border-width: medium;
-       transition: 0.6s;
-       border-top-color: white;
-       border-right-color: white;
-       border-left-color: white;
-       border-bottom-color: rgb(250, 120, 142);
-      
-     }
-     .a:hover{
-       border-bottom-color:#F28273;
-     }
-     .b:hover{
-       border-bottom-color:#FB56C1;
-     }
-     .c:hover{
-       border-bottom-color:#F26A10;
-     }
-     .d:hover{
-       border-bottom-color:#F5CD45;
-     }
-     .e:hover{
-       border-bottom-color:#10B7AF;
-     }
-     .fas{
-      margin: 30.55px;
-     font-size: 20px;
-     color: black;
-     }
-     #p1{
-       margin: 20px;
-     cursor: pointer;
-       font-size: 30px;
-       color: black;
-     }
-     #p1:hover{
-       color: rgb(250, 120, 142);
-       transition: 0.3s;
-     }
-     .fab{
-                                    margin: 20px;
-                                  cursor: pointer;
-                                    font-size: 30px;
-                                    color: black;
-                                  }
- .nav_side  input{
- 
-   width: 350px;
-   height: 35px; 
-   border-radius: 5px; 
-   background-color: rgb(233, 233, 233);  
-   outline: none;
-   border: none;
- }
- .tool{
-   float: right;   
-   margin-left: 30px;
- }
- .fas:hover{
-   color: rgb(250, 120, 142);
-   transition: 0.3s;
- }
- .fab:hover{
-   color: rgb(250, 120, 142);
-   transition: 0.3s;
- }
-                                  
+.navbar {
+  background-color: white;
+  box-shadow: 0px 3px 15px 0px rgb(224, 224, 224);
+  z-index: -1;
+  ;
+
+}
+
+.bor {
+  border-style: solid;
+  border-width: medium;
+  border-top-color: white;
+  border-right-color: white;
+  border-left-color: white;
+  border-bottom-color: white;
+  text-decoration: none;
+}
+
+.bor:hover {
+  border-style: solid;
+  border-width: medium;
+  transition: 0.6s;
+  border-top-color: white;
+  border-right-color: white;
+  border-left-color: white;
+  border-bottom-color: rgb(250, 120, 142);
+
+}
+
+.a:hover {
+  border-bottom-color: #F28273;
+}
+
+.b:hover {
+  border-bottom-color: #FB56C1;
+}
+
+.c:hover {
+  border-bottom-color: #F26A10;
+}
+
+.d:hover {
+  border-bottom-color: #F5CD45;
+}
+
+.e:hover {
+  border-bottom-color: #10B7AF;
+}
+
+.fas {
+  margin: 30.55px;
+  font-size: 20px;
+  color: black;
+}
+
+#p1 {
+  margin: 20px;
+  cursor: pointer;
+  font-size: 30px;
+  color: black;
+}
+
+#p1:hover {
+  color: rgb(250, 120, 142);
+  transition: 0.3s;
+}
+
+.fab {
+  margin: 20px;
+  cursor: pointer;
+  font-size: 30px;
+  color: black;
+}
+
+.nav_side input {
+
+  width: 350px;
+  height: 35px;
+  border-radius: 5px;
+  background-color: rgb(233, 233, 233);
+  outline: none;
+  border: none;
+}
+
+.tool {
+  float: right;
+  margin-left: 30px;
+}
+
+.fas:hover {
+  color: rgb(250, 120, 142);
+  transition: 0.3s;
+}
+
+.fab:hover {
+  color: rgb(250, 120, 142);
+  transition: 0.3s;
+}
 
 
-.con1header{
+
+.con1header {
   font-size: 10px;
   padding: 4em;
 }
 
-.items_img img{ 
+.items_img img {
   width: 100%;
   border-radius: 7px;
 }
-.items_img img:hover{
+
+.items_img img:hover {
   box-shadow: 3px 3px 35px 3px rgb(224, 224, 224);
   transition: 0.3s;
 }
 
 
-.move{
+.move {
   color: hotpink;
   padding-top: 3px;
   padding-bottom: 2px;
   /* border-top: gray solid thin; */
- text-align: center;
- font-weight: bolder;
- border-radius: 5px;
- cursor: pointer;
- border: solid black 1px;
+  text-align: center;
+  font-weight: bolder;
+  border-radius: 5px;
+  cursor: pointer;
+  border: solid black 1px;
 
- 
+
 }
-.move:hover
-{
-    color: red;
-    transition: .3s;
-    
+
+.move:hover {
+  color: red;
+  transition: .3s;
+
 }
+
 /* Font Icon */
-.fab{
+.fab {
   margin: 20px;
-cursor: pointer;
+  cursor: pointer;
   font-size: 30px;
   color: black;
 }
-.fas{
+
+.fas {
   margin: 20px;
- font-size: 30px;
- color: black;
- }
-
-.fas:hover{
-  color: rgb(250, 120, 142);
-  transition: 0.3s;
+  font-size: 30px;
+  color: black;
 }
-.fab:hover{
+
+.fas:hover {
   color: rgb(250, 120, 142);
   transition: 0.3s;
 }
 
+.fab:hover {
+  color: rgb(250, 120, 142);
+  transition: 0.3s;
+}
 
-.con{
+
+.con {
   margin-left: 40px;
 }
 
 /* Footer */
 
-.options{
+.options {
   display: flex;
   background-color: rgb(240, 239, 239);
   cursor: pointer;
 }
-li{
+
+li {
   list-style: none;
 }
 
-.im img{
+.im img {
   width: 35%;
   padding: 3px;
 }
-.detail{
+
+.detail {
   margin: 50px;
-width: 25%;
- 
+  width: 25%;
+
 }
-ul{
+
+ul {
   font-weight: bold;
-margin-left: 5px;
+  margin-left: 5px;
 }
-li{
+
+li {
   margin-left: 41px;
 }
-.detail .fab{
+
+.detail .fab {
   font-size: 25px;
   margin: 5px;
 }
-.popular{
+
+.popular {
   margin: 40px;
 }
-.popular a{
+
+.popular a {
   font-size: 20px;
-color: gray;
+  color: gray;
 }
-.popular a:hover{
+
+.popular a:hover {
   text-decoration: none;
   color: hotpink;
   transition: .3s;
 }
-.contact{
+
+.contact {
   display: flex;
   cursor: pointer;
- 
+
 }
-.c1{
+
+.c1 {
   width: 90%;
   margin: 40px;
 }
 
-.contact .c1 h4{
+.contact .c1 h4 {
   color: blue;
 }
-.c2{
+
+.c2 {
   float: right;
   margin: 40px;
 }
-.con{
+
+.con {
   margin-left: 40px;
 }
 
 
- /* for  mobile */
- @media (min-width: 320px) {
-  .options  {
-    display: block;       
+/* for  mobile */
+@media (min-width: 320px) {
+  .options {
+    display: block;
   }
-  .icon4{
-    display: flex;     
-  }
-}
-@media (min-width: 992px) {
-  .options  {
+
+  .icon4 {
     display: flex;
   }
 }
 
+@media (min-width: 992px) {
+  .options {
+    display: flex;
+  }
+}
