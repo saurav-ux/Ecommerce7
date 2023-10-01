@@ -43,6 +43,240 @@
       "imgName":"Image\\myntra13.webp"
     }  
   ],
+
+  "container2": [
+    {
+      "id": 1,
+      "imgName":"Image\\myntra15.webp"
+    },
+    {
+      "id": 2,
+      "imgName":"Image\\myntra16.webp"
+    },
+    {
+      "id": 3,
+      "imgName":"Image\\myntra17.webp"
+    },
+    {
+      "id": 4,
+      "imgName":"Image\\myntra18.webp"
+    },
+    {
+      "id": 5,
+      "imgName":"Image\\myntra19.jpg"
+    },
+    {
+      "id": 6,
+      "imgName":"Image\\myntra17.webp"
+    }  
+  ],
+
+  "container3": [
+    {
+      "id": 1,
+      "imgName1":"Image\\myntra25.webp",
+      "imgName2":"Image\\myntra26.webp"
+    },
+    {
+      "id": 2,
+      "imgName1":"Image\\myntra27.webp",
+      "imgName2":"Image\\myntra28.webp"
+    },
+    {
+      "id": 3,
+      "imgName1":"Image\\myntra29.webp",
+      "imgName2":"Image\\myntra30.webp"
+    },
+    {
+      "id": 4,
+      "imgName1":"Image\\myntra31.webp",
+      "imgName2":"Image\\myntra32.webp"
+    },
+    {
+      "id": 5,
+      "imgName1":"Image\\myntra33.webp",
+      "imgName2":"Image\\myntra34.webp"
+    },
+    {
+      "id": 6,
+      "imgName1":"Image\\myntra27.webp",
+      "imgName2":"Image\\myntra29.webp"
+    } 
+  ],
+
+  "container4": [
+    {
+      "id": 1,
+      "off": 20,
+      "price": 300,
+      "cutprice":60,
+      "imgName":"Image\\myntra36.webp"
+    },
+    {
+      "id": 2,
+      "off": 20,
+      "price": 400,
+      "cutprice":60,
+      "imgName":"Image\\myntra37.webp"
+    },
+    {
+      "id": 3,
+      "off": 20,
+      "price": 560,
+      "cutprice":60,
+      "imgName":"Image\\myntra38.webp"
+    },
+    {
+      "id": 4,
+      "off": 17,
+      "price": 100,
+      "cutprice":11,
+      "imgName":"Image\\myntra39.webp"
+    },
+    {
+      "id": 5,
+      "off": 20,
+      "price": 540,
+      "cutprice":60,
+      "imgName":"Image\\myntra40.webp"
+    },
+    {
+      "id": 6,
+      "off": 20,
+      "price": 120,
+      "cutprice":60,
+      "imgName":"Image\\myntra41.webp"
+    }  ,
+    {
+      "id": 7,
+      "off": 20,
+      "price": 560,
+      "cutprice":60,
+      "imgName":"Image\\myntra42.webp"
+    },
+    {
+      "id": 8,
+      "off": 20,
+      "price": 750,
+      "cutprice":60,
+      "imgName":"Image\\myntra43.webp"
+    },
+    {
+      "id": 9,
+      "off": 20,
+      "price": 380,
+      "cutprice":60,
+      "imgName":"Image\\myntra44.webp"
+    },
+    {
+      "id": 10,
+      "off": 80,
+      "price": 170,
+      "cutprice":60,
+      "imgName":"Image\\myntra45.webp"
+    } ,
+    {
+      "id": 11,
+      "off": 20,
+      "price": 540,
+      "cutprice":60,
+      "imgName":"Image\\myntra37.webp"
+    },
+    {
+      "id": 12,
+      "off": 20,
+      "price": 140,
+      "cutprice":60,
+      "imgName":"Image\\myntra39.webp"
+    } 
+  ],
+
+  "container5": [
+    {
+      "id": 1,
+      "off": 21,
+      "price": 320,
+      "cutprice":71,
+      "imgName":"Image\\myntra46.webp"
+    },
+    {
+      "id": 2,
+      "off": 20,
+      "price": 230,
+      "cutprice":20,
+      "imgName":"Image\\myntra47.webp"
+    },
+    {
+      "id": 3,
+      "off": 20,
+      "price": 729,
+      "cutprice":60,
+      "imgName":"Image\\myntra48.jpg"
+    },
+    {
+      "id": 4,
+      "off": 17,
+      "price": 100,
+      "cutprice":11,
+      "imgName":"Image\\myntra49.webp"
+    },
+    {
+      "id": 5,
+      "off": 20,
+      "price": 540,
+      "cutprice":60,
+      "imgName":"Image\\myntra50.webp"
+    },
+    {
+      "id": 6,
+      "off": 20,
+      "price": 120,
+      "cutprice":60,
+      "imgName":"Image\\myntra51.webp"
+    }  ,
+    {
+      "id": 7,
+      "off": 20,
+      "price": 560,
+      "cutprice":60,
+      "imgName":"Image\\myntra52.webp"
+    },
+    {
+      "id": 8,
+      "off": 20,
+      "price": 150,
+      "cutprice":60,
+      "imgName":"Image\\myntra53.webp"
+    },
+    {
+      "id": 9,
+      "off": 20,
+      "price": 380,
+      "cutprice":60,
+      "imgName":"Image\\myntra54.jpg"
+    },
+    {
+      "id": 10,
+      "off": 80,
+      "price": 170,
+      "cutprice":60,
+      "imgName":"Image\\myntra55.jpg"
+    } ,
+    {
+      "id": 11,
+      "off": 20,
+      "price": 540,
+      "cutprice":60,
+      "imgName":"Image\\myntra47.webp"
+    },
+    {
+      "id": 12,
+      "off": 120,
+      "price": 760,
+      "cutprice":60,
+      "imgName":"Image\\myntra49.webp"
+    } 
+  ],
   "comments": [
     {
       "id": 1,

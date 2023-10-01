@@ -7,7 +7,7 @@ import { addItem } from "../Services/containerSlice";
 const Container1 = () => {
   const count = useSelector((state) => state.containerr.addproduct);
   const dispatch = useDispatch();
-  console.log("count", count);
+  console.log("count", count);   //For testing
 
   //-------------------RTK QueryFetch-------------------------
   const {

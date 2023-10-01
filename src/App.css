@@ -215,3 +215,20 @@ color: gray;
 .con{
   margin-left: 40px;
 }
+
+
+ /* for  mobile */
+ @media (min-width: 320px) {
+  .options  {
+    display: block;       
+  }
+  .icon4{
+    display: flex;     
+  }
+}
+@media (min-width: 992px) {
+  .options  {
+    display: flex;
+  }
+}
+
