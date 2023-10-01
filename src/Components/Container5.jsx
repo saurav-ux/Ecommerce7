@@ -1,16 +1,6 @@
 import * as React from "react";
 import { Grid } from "@mui/material";
 import { Card } from "@mui/material";
-import myntra46 from "../Images/myntra46.webp";
-import myntra47 from "../Images/myntra47.webp";
-import myntra48 from "../Images/myntra48.jpg";
-import myntra49 from "../Images/myntra49.webp";
-import myntra50 from "../Images/myntra50.webp";
-import myntra51 from "../Images/myntra51.webp";
-import myntra52 from "../Images/myntra52.webp";
-import myntra53 from "../Images/myntra53.webp";
-import myntra54 from "../Images/myntra54.jpg";
-import myntra55 from "../Images/myntra55.jpg";
 import { useContainer5apiDataQuery } from "../Services/commentttApi";
 import { addItem } from "../Services/containerSlice";
 import { useSelector,useDispatch } from "react-redux";
@@ -23,11 +13,8 @@ const Container5 = () => {
       isLoading,
       isError,
     } = useContainer5apiDataQuery();
-    var off = 0,
-    cutprice = 0,
-    price = 9;
   return (
-    <div id="content5">
+    <div id="content5"style={{margin:25}}>
       <div className="con1header">
       <h2>TRENDING IN ACCESSORIES</h2>
       </div>
@@ -35,7 +22,7 @@ const Container5 = () => {
       {isLoading ? "Loading..." : ""}
 
        <div className="p-24 w-full">
-        <Grid container spacing={3}>
+        <Grid container spacing={4}>
           {containerData?.map((row) => {
             return (
               <Grid item xs={12} sm={6} md={4} lg={2} key={row.id}>
