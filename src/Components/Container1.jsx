@@ -18,14 +18,14 @@ const Container1 = () => {
   // console.log("data",containerData[0].imgName)
 
   return (
-    <div id="content1">
+    <div id="content1" style={{margin:25}}>
       <div className="con1header">
         <h2>MEDAL WORTHY BRANDS TO BAG </h2>
       </div>
       {isError ? "Somthing Went Wrong" : ""}
       {isLoading ? "Loading..." : ""}
       <div className="p-24 w-full">
-        <Grid container spacing={3}>
+        <Grid container spacing={4}>
           {containerData?.map((row) => {
             return (
               <Grid item xs={12} sm={6} md={4} lg={2} key={row.id}>

@@ -10,14 +10,14 @@ const Container3 = () => {
     isError,
   } = useContainer3apiDataQuery();
   return (
-    <div id="content3">
+    <div id="content3"style={{margin:25}}>
       <div className="con1header">
         <h2>CATEGORIES TO BAG</h2>
       </div>
       {isError ? "Somthing Went Wrong" : ""}
       {isLoading ? "Loading..." : ""}
       <div className="p-24 w-full">
-        <Grid container spacing={3}>
+        <Grid container spacing={4}>
           {containerData?.map((row) => {
             return (
               <Grid item xs={12} sm={6} md={4} lg={2} key={row.id}>

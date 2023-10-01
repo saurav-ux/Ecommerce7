@@ -12,7 +12,7 @@ const Container2 = () => {
   } = useContainer2apiDataQuery();
 
   return (
-    <div id="content2">
+    <div id="content2"style={{margin:25}}>
       <div className="con1header">
         <h2>BIGGEST DEALS ON TOP BRANDS</h2>
       </div>
@@ -20,7 +20,7 @@ const Container2 = () => {
       {isLoading ? "Loading..." : ""}
 
       <div className="p-24 w-full">
-        <Grid container spacing={3}>
+        <Grid container spacing={4}>
           {containerData?.map((row) => {
             return (
               <Grid item xs={12} sm={6} md={4} lg={2} key={row.id}>

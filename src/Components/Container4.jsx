@@ -26,7 +26,7 @@ const Container4 = () => {
   } = useContainer4apiDataQuery();
 
   return (
-    <div id="content4">
+    <div id="content4"style={{margin:25}}>
       <div className="con1header">
       <h2>TRENDING IN INDIAN WEAR</h2>
       </div>
@@ -34,7 +34,7 @@ const Container4 = () => {
       {isLoading ? "Loading..." : ""}
       
       <div className="p-24 w-full">
-        <Grid container spacing={3}>
+        <Grid container spacing={4}>
           {containerData?.map((row) => {
             return (
               <Grid item xs={12} sm={6} md={4} lg={2} key={row.id}>
@@ -69,7 +69,7 @@ const Container4 = () => {
         </Grid>
       </div>
 
-      <br/><br/>
+   
 
     </div>
   );
