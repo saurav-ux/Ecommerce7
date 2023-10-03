@@ -15,7 +15,14 @@ export const loginApi = createApi({
               method: 'GET',
             }),
           }),
+        signup:builder.mutation({
+            query:(data)=>({
+              url: `/login/`,
+              method: 'POST',
+              body:data
+            })
+          })
     })
 })
 
-export const {useGetLoginDataQuery} = loginApi;
+export const {useGetLoginDataQuery,useSignupMutation} = loginApi;
