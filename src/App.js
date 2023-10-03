@@ -8,6 +8,7 @@ import Container3 from "./Components/Container3";
 import Container4 from "./Components/Container4";
 import Container5 from "./Components/Container5";
 import WishList from "./Components/WishList";
+import LoginPage from "./Components/LoginPage";
 import Footer from "./Components/Footer";
 import {
   BrowserRouter as Router7,
@@ -45,6 +46,15 @@ function App() {
                 <Footer />
               </>
             }
+          />
+          <Route
+           path="/login"
+           element={
+             <>
+               <Navbarr />
+               <LoginPage/>
+             </>
+           }
           />
         </Routes>
       </Router7>

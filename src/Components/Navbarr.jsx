@@ -48,7 +48,7 @@ function Navbarr() {
               <Nav.Link href="#content5">BEAUTY</Nav.Link>{" "}
             </div>
           </Nav>
-          <Link to="/">
+          <Link to="/login">
             {" "}
             <dfn title="Login/Signup">
               {" "}
