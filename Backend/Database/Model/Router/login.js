@@ -11,10 +11,11 @@ router.get("/",async (req,res)=>{
         res.send("Internal Servar Error: ",error)
     }
 })
-router.post("/",(req,res)=>{
+
+router.post("/",async (req,res)=>{
     try {
         const addingData  = new LoginData(req.body);
-        addingData.save();
+       await addingData.save();
         res.status(201).send(true)
     } catch (error) {
         res.status(500).send("Inrternal Server Error: ",error)
