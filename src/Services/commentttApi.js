@@ -48,7 +48,13 @@ export const commentapi = createApi({
           method: 'GET',
         }),
       }),
-      
+      getLoginData:builder.query({
+        query: () => ({
+          url: `/container5/`,
+          method: 'GET',
+        }),
+      }),
+
   }),
  
   
