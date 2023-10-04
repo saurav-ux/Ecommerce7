@@ -1,7 +1,13 @@
 import express from 'express'
 import './Database/connection.js'
 import router from './Database/Model/Router/login.js';
+
+//By using the cors middleware and calling app.use(cors()),
+// you allow your Express server to respond to requests from different origins,
+// including http://localhost:3001.
+import cors from 'cors'
 const app = express();
+app.use(cors())
 const PORT = process.env.PORT || 5001;
 app.use(express.json())
 
