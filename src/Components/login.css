@@ -3,23 +3,24 @@
 }
 
 .body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(255, 239, 242);
+    
     /* width: 100%; */
-    margin-top: -38px;
+    /* margin-top: -38px; */
 
 }
 .login{
+   
     width: 30%;
   text-align: center;  
     background-color: white;
-  margin-left: 500px;
- margin-top: 50px;
+
 }
 img{
     width: 100%;
-}
-input{
-    padding: 6px;
 }
 cite{
     font-weight: bold;
@@ -36,6 +37,10 @@ button{
 .co{
     color: white;
     padding: 6px;
+}
+.textfield{
+    width: 100%;
+    
 }
 
 

@@ -4,6 +4,10 @@ import loginImage from "../Images/loginImage.webp";
 import { useGetLoginDataQuery } from "../Services/loginApi";
 import style from "./login.css";
 import { useFormik } from "formik";
+import {
+  DialogContent,
+  TextField,
+} from "@mui/material";
 import * as Yup from 'yup'
 
 const signUpSchema = Yup.object({
@@ -42,77 +46,83 @@ const LoginPag = () => {
 
   return (
     <div>
-    <br/>
-    <br/>
-    <br/>
-    <br/>
-    <div className="body">
       <br />
       <br />
-      <div class="login">
-        <div class="logimg">
-          <img src={loginImage} alt="" />
-        </div>
-        <h3>
-          {" "}
-          <p>Login</p>
-        </h3>
+      <br />
+      <br />
+      <div className="body">
         <br />
-        <form action="" onSubmit={handleSubmit}>
-      
+        <br />
+        <div class="login">
+          <div class="logimg">
+            <img src={loginImage} alt="" />
+          </div>
+          <h3>
           <br />
-          <input
-            type="email"
-            placeholder="Enter Your Email"
-            required
-            name="email"
-            id="email"
-            value={values.email}
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />{" "}
-          <br />
-          <input
-            type="password"
-            placeholder="Password"
-            required
-            name="password"
-            id="password"
-            value={values.password}
-            onChange={handleChange}
-            onBlur={handleBlur}
-          />{" "}
-          <br />
+            <p>Login</p>
+          </h3>
+          {/* <br /> */}
+          <DialogContent classes={{ root: "p-16 pb-0 sm:p-32 sm:pb-0" }}>
+          <form action="" onSubmit={handleSubmit}>
+           
+            <TextField
+            className="textfield"
+              type="email"
+              placeholder="Enter Your Email"
+              required
+              name="email"
+              id="email"
+              value={values.email}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.email && Boolean(errors.email)}
+              helperText={touched.email && errors.email}  
+            />
+            <br />
+            <TextField
+            className="textfield"
+              type="password"
+              placeholder="Password"
+              required
+              name="password"
+              id="password"
+              value={values.password}
+              onChange={handleChange}
+              onBlur={handleBlur}
+              error={touched.password && Boolean(errors.password)}
+              helperText={touched.password && errors.password}  
+            />
+            <br />
+             <br /> <br />
+            <p>
+              {" "}
+              By continuing, I agree to the <cite>Terms of Use</cite> &{" "}
+              <cite>Privacy Policy</cite>
+            </p>{" "}
+          
+            <h4>
+              {" "}
+              <button type="submit" id="submit" class="co">
+                LOGIN
+              </button>
+            </h4>
+          </form>
+          </DialogContent>
          
+        
           <p>
-            {" "}
-            By continuing, I agree to the <cite>Terms of Use</cite> &{" "}
-            <cite>Privacy Policy</cite>
-          </p>{" "}
+            Already have account? <cite>
+              <Link to="/signin">          
+               Log In
+               </Link>
+               </cite>
+          </p>
           <br />
-          <h4>
-            {" "}
-            <button type="submit" id="submit" class="co">
-              LOGIN
-            </button>
-          </h4>
-        </form>
-        <br />
-        <br />
-        <p>
-          Not have an account?<cite>
-           <Link to='/signin'>
-           Sign In
-           </Link>
-             </cite>
-        </p>
-        <br />
-        <br /> <br />
-        <br /> <br />
+    
+        </div>
       </div>
     </div>
-  </div>
-  )
+  );
 }
 
 export default LoginPag
