@@ -5,7 +5,10 @@ import loginImage from "../Images/loginImage.webp";
 import style from "./login.css";
 import { useFormik } from "formik";
 import * as Yup from 'yup'
-
+import {
+  DialogContent,
+  TextField,
+} from "@mui/material";
 const signUpSchema = Yup.object({
   name:Yup.string().min(2).max(25).required("Please enter your name"),
   email: Yup.string().email().required("Please enter your name"),
@@ -66,12 +69,14 @@ const submitHandler = async (values, action) => {
             <img src={loginImage} alt="" />
           </div>
           <h3>
-            {" "}
+          <br />
             <p>Signup</p>
           </h3>
-          <br />
+          {/* <br /> */}
+          <DialogContent classes={{ root: "p-16 pb-0 sm:p-32 sm:pb-0" }}>
           <form action="" onSubmit={handleSubmit}>
-          <input
+          <TextField
+              className="textfield"
               type="name"
               placeholder="Enter Your Name"
               required
@@ -80,9 +85,13 @@ const submitHandler = async (values, action) => {
               value={values.name}
               onChange={handleChange}
               onBlur={handleBlur}
-            />{errors.name && touched.name ? <p className="form-error">{errors.name}</p> : " "}
+              error={touched.name && Boolean(errors.name)}
+              helperText={touched.name && errors.name}  
+            />
+            {/* {errors.name && touched.name ? <p className="form-error">{errors.name}</p> : " "} */}
             <br />
-            <input
+            <TextField
+            className="textfield"
               type="email"
               placeholder="Enter Your Email"
               required
@@ -91,9 +100,12 @@ const submitHandler = async (values, action) => {
               value={values.email}
               onChange={handleChange}
               onBlur={handleBlur}
-            />{errors.email && touched.email ? <p className="form-error">{errors.email}</p> : " "}
+              error={touched.email && Boolean(errors.email)}
+              helperText={touched.email && errors.email}  
+            />
             <br />
-            <input
+            <TextField
+            className="textfield"
               type="password"
               placeholder="Password"
               required
@@ -102,9 +114,12 @@ const submitHandler = async (values, action) => {
               value={values.password}
               onChange={handleChange}
               onBlur={handleBlur}
-            />{errors.password && touched.password ? <p className="form-error">{errors.password}</p> : " "}
+              error={touched.password && Boolean(errors.password)}
+              helperText={touched.password && errors.password}  
+            />
             <br />
-            <input
+            <TextField
+            className="textfield"
               type="password"
               placeholder="Confirm Password"
               required
@@ -113,13 +128,16 @@ const submitHandler = async (values, action) => {
               value={values.repassword}
               onChange={handleChange}
               onBlur={handleBlur}
-            />{errors.repassword && touched.repassword ? <p className="form-error">{errors.repassword}</p> : " "}
+              error={touched.repassword && Boolean(errors.repassword)}
+              helperText={touched.repassword && errors.repassword}  
+            />
+             <br /> <br />
             <p>
               {" "}
               By continuing, I agree to the <cite>Terms of Use</cite> &{" "}
               <cite>Privacy Policy</cite>
             </p>{" "}
-            <br />
+          
             <h4>
               {" "}
               <button type="submit" id="submit" class="co">
@@ -127,10 +145,11 @@ const submitHandler = async (values, action) => {
               </button>
             </h4>
           </form>
-          <br />
-          <br />
+          </DialogContent>
+         
+        
           <p>
-            Already have account?<cite>
+            Already have account? <cite>
               <Link to="/login">          
                Log In
                </Link>
