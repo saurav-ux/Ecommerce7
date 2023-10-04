@@ -8,7 +8,8 @@ import Container3 from "./Components/Container3";
 import Container4 from "./Components/Container4";
 import Container5 from "./Components/Container5";
 import WishList from "./Components/WishList";
-import LoginPage from "./Components/LoginPage";
+import SignUp from "./Components/Signup";
+import LoginPag from "./Components/LoginPag";
 import Footer from "./Components/Footer";
 import {
   BrowserRouter as Router7,
@@ -48,15 +49,26 @@ function App() {
             }
           />
           <Route
+           path="/signin"
+           element={
+             <>
+               <Navbarr />
+               <SignUp/>
+             </>
+           }
+          />
+            <Route
            path="/login"
            element={
              <>
                <Navbarr />
-               <LoginPage/>
+               <LoginPag/>
              </>
            }
           />
+          
         </Routes>
+        
       </Router7>
     </>
   );
