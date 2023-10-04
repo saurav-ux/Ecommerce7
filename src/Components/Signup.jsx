@@ -1,9 +1,19 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { useGetLoginDataQuery,useSignupMutation } from "../Services/loginApi";
 import loginImage from "../Images/loginImage.webp";
 import style from "./login.css";
 import { useFormik } from "formik";
-const LoginPage = () => {
+import * as Yup from 'yup'
+
+const signUpSchema = Yup.object({
+  name:Yup.string().min(2).max(25).required("Please enter your name"),
+  email: Yup.string().email().required("Please enter your name"),
+  password: Yup.string().min(6).required("Please Enter min 6 digit password"),
+  repassword:Yup.string().required().oneOf([Yup.ref("password"),null],"Password must match")
+})
+
+const SignUp = () => {
 
  //--------------RTK Query Fetch------------------
   const { data: login } = useGetLoginDataQuery();
@@ -33,8 +43,9 @@ const submitHandler = async (values, action) => {
     repassword: "",
     name: ''
   }
- const {values,errors,handleBlur,handleChange,handleSubmit} = useFormik({
+ const {values,errors,touched,handleBlur,handleChange,handleSubmit} = useFormik({
     initialValues: initialValues,
+    validationSchema:signUpSchema,
     onSubmit: 
     submitHandler
     //  (values)=>{
@@ -56,7 +67,7 @@ const submitHandler = async (values, action) => {
           </div>
           <h3>
             {" "}
-            <p>Login or Signup</p>
+            <p>Signup</p>
           </h3>
           <br />
           <form action="" onSubmit={handleSubmit}>
@@ -69,7 +80,7 @@ const submitHandler = async (values, action) => {
               value={values.name}
               onChange={handleChange}
               onBlur={handleBlur}
-            />{" "}
+            />{errors.name && touched.name ? <p className="form-error">{errors.name}</p> : " "}
             <br />
             <input
               type="email"
@@ -80,7 +91,7 @@ const submitHandler = async (values, action) => {
               value={values.email}
               onChange={handleChange}
               onBlur={handleBlur}
-            />{" "}
+            />{errors.email && touched.email ? <p className="form-error">{errors.email}</p> : " "}
             <br />
             <input
               type="password"
@@ -91,7 +102,7 @@ const submitHandler = async (values, action) => {
               value={values.password}
               onChange={handleChange}
               onBlur={handleBlur}
-            />{" "}
+            />{errors.password && touched.password ? <p className="form-error">{errors.password}</p> : " "}
             <br />
             <input
               type="password"
@@ -102,7 +113,7 @@ const submitHandler = async (values, action) => {
               value={values.repassword}
               onChange={handleChange}
               onBlur={handleBlur}
-            />{" "}
+            />{errors.repassword && touched.repassword ? <p className="form-error">{errors.repassword}</p> : " "}
             <p>
               {" "}
               By continuing, I agree to the <cite>Terms of Use</cite> &{" "}
@@ -119,15 +130,18 @@ const submitHandler = async (values, action) => {
           <br />
           <br />
           <p>
-            Have trouble logging in?<cite> Get help</cite>
+            Already have account?<cite>
+              <Link to="/login">          
+               Log In
+               </Link>
+               </cite>
           </p>
           <br />
-          <br /> <br />
-          <br /> <br />
+    
         </div>
       </div>
     </div>
   );
 };
 
-export default LoginPage;
+export default SignUp;
