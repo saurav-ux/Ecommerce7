@@ -48,7 +48,7 @@ function Navbarr() {
               <Nav.Link href="#content5">BEAUTY</Nav.Link>{" "}
             </div>
           </Nav>
-          <Link to="/">
+          <Link to="/signin">
             {" "}
             <dfn title="Login/Signup">
               {" "}
@@ -63,7 +63,7 @@ function Navbarr() {
             <dfn title="Wishlist">
               {" "}
               <a href="wishlist.html">
-                <i class="fas fa-heart"> {count.length==0? " " :count.length}</i>
+                <i class="fas fa-heart"> {count.length===0? " " :count.length}</i>
               </a>{" "}
             </dfn>
           </Link>
@@ -85,7 +85,7 @@ function Navbarr() {
               className="me-2"
               aria-label="Search"
             />
-            <Button variant="outline-success">Search</Button>
+            {/* <Button variant="outline-success">Search</Button> */}
           </Form>
         </Navbar.Collapse>
       </Container>
