@@ -47,7 +47,7 @@ const LoginPag = () => {
         horizontal: 'center',
          open: true });
          setSnackColor("error")
-        setMessage("Somthing Went Wrong")
+        setMessage("Incorrect Password or Email")
       }
       console.log("response", response);
       if (response?.data.status) {
