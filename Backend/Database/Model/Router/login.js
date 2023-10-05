@@ -14,6 +14,7 @@ router.get("/",async (req,res)=>{
     }
 })
 
+
 router.post("/",async (req,res)=>{
     try {
         const addingData  = new LoginData(req.body);
@@ -34,37 +35,30 @@ router.post("/",async (req,res)=>{
     }
 })
 
-router.post("/validate",async (req,res)=>{
+router.post("/validate", async (req, res) => {
     try {
-        const email = req.body.email
-        const password = req.body.password
-        const useremail = await LoginData.findOne({email:email})
-        // const userpassword = await LoginData.findOne({password:password})
-        const isMatch = await bcrypt.compare(password,useremail.password)
-        // console.log(isMatch)
-        // console.log(useremail)
-        if(useremail!==null && isMatch){
-            const tokenn = await useremail.generateAuthToken();
-            console.log("login token",tokenn)
-            res.status(201).send({status:true,name:useremail.name})
+        const email = req.body.email;
+        const password = req.body.password;
+        const useremail = await LoginData.findOne({ email: email });
+
+        if (useremail !== null) {
+            const isMatch = await bcrypt.compare(password, useremail.password);
+
+            if (isMatch) {
+                const token = await useremail.generateAuthToken();
+                console.log("login token", token);
+                res.status(201).send({ status: true, name: useremail.name });
+            } else {
+                res.status(401).send({ status: false, name: "Incorrect email or password" });
+            }
+        } else {
+            res.status(401).send({ status: false, name: "Incorrect email or password" });
         }
-        else{
-            if(!isMatch && useremail===null){
-                res.status(201).send({status:false,name:"Incorrect both Email and Password"})
-            }
-            else if(!isMatch){
-                res.status(201).send({status:false,name:"Incorrect Password"})
-            }
-            else{
-                res.status(201).send({status:false,name:"Incorrect Email"})
-            }
-           
-        }
-    //    await addingData.save();
-        // res.status(201).send(true)
     } catch (error) {
-        res.status(500).send("Inrternal Server Error: ",error)
+        console.error("Internal Server Error:", error);
+        res.status(500).send({ error: "Internal Server Error" });
     }
-})
+});
+
 
 export default router
