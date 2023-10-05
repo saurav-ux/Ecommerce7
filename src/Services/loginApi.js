@@ -21,8 +21,15 @@ export const loginApi = createApi({
               method: 'POST',
               body:data
             })
+          }),
+        validateLogin:builder.mutation({
+            query:(data)=>({
+              url: `/login/validate`,
+              method: 'POST',
+              body:data
+            })
           })
     })
 })
 
-export const {useGetLoginDataQuery,useSignupMutation} = loginApi;
+export const {useGetLoginDataQuery,useSignupMutation,useValidateLoginMutation} = loginApi;

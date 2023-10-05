@@ -1,47 +1,45 @@
-*{
+* {
     margin: 0;
 }
 
-.body{
+.body {
     display: flex;
     justify-content: center;
     align-items: center;
     background-color: rgb(255, 239, 242);
-    
-    /* width: 100%; */
-    /* margin-top: -38px; */
-
 }
-.login{
-   
+
+.login {
+
     width: 30%;
-  text-align: center;  
+    text-align: center;
     background-color: white;
 
 }
-img{
+
+img {
     width: 100%;
 }
-cite{
+
+cite {
     font-weight: bold;
     color: hotpink;
 }
-button{
+
+button {
     background-color: rgb(250, 6, 128);
     width: 70%;
-   border-radius: 4px;
+    border-radius: 4px;
     border: none;
 
 }
 
-.co{
+.co {
     color: white;
     padding: 6px;
 }
-.textfield{
+
+.textfield {
     width: 100%;
-    
+
 }
-
-
-
