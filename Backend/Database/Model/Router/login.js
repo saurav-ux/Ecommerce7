@@ -1,4 +1,6 @@
 import express from 'express'
+import bcrypt from 'bcryptjs'
+import jwt from "jsonwebtoken"
 const router = express.Router();
 import LoginData from '../Schema.js';
 
@@ -6,9 +8,9 @@ import LoginData from '../Schema.js';
 
 router.get("/",async (req,res)=>{
     try {
-        res.send(await LoginData.find({}))
+        res.status(200).send(await LoginData.find({}))
     } catch (error) {
-        res.send("Internal Servar Error: ",error)
+        res.status(500).send("Internal Server Error: " + error)
     }
 })
 
@@ -21,12 +23,14 @@ router.post("/",async (req,res)=>{
             res.status(400).send("Email Already Exists")
         }
         else{
-            await addingData.save();
-            res.status(201).send("Data Inserted")
+        const tokenn = await addingData.generateAuthToken();
+        console.log("gen token",tokenn)
+           await addingData.save();
+            res.status(200).send(true)
         }    
         // res.status(201).send(true)
     } catch (error) {
-        res.status(500).send("Internal Server Error: ",error)
+        res.status(500).send("Internal Server Errors: ",error)
     }
 })
 
@@ -35,16 +39,20 @@ router.post("/validate",async (req,res)=>{
         const email = req.body.email
         const password = req.body.password
         const useremail = await LoginData.findOne({email:email})
-        const userpassword = await LoginData.findOne({password:password})
+        // const userpassword = await LoginData.findOne({password:password})
+        const isMatch = await bcrypt.compare(password,useremail.password)
+        // console.log(isMatch)
         // console.log(useremail)
-        if(useremail!==null && userpassword!==null){
+        if(useremail!==null && isMatch){
+            const tokenn = await useremail.generateAuthToken();
+            console.log("login token",tokenn)
             res.status(201).send({status:true,name:useremail.name})
         }
         else{
-            if(useremail===null && userpassword===null){
+            if(!isMatch && useremail===null){
                 res.status(201).send({status:false,name:"Incorrect both Email and Password"})
             }
-            else if(userpassword===null){
+            else if(!isMatch){
                 res.status(201).send({status:false,name:"Incorrect Password"})
             }
             else{

@@ -1,6 +1,8 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import loginImage from "../Images/loginImage.webp";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 import { useValidateLoginMutation ,useGetLoginDataQuery} from "../Services/loginApi";
 import style from "./login.css";
 import { useFormik } from "formik";
@@ -8,12 +10,29 @@ import { DialogContent, TextField } from "@mui/material";
 import * as Yup from "yup";
 import { loginStatus } from "../Services/containerSlice";
 import { useDispatch } from "react-redux";
+
+
 const signUpSchema = Yup.object({
   email: Yup.string().email().required("Please enter your name"),
   password: Yup.string().min(6).required("Please Enter min 6 digit password"),
 });
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
 const LoginPag = () => {
+
+ 
+  const [state, setState] = useState({
+    open: false,
+    vertical: 'top',
+    horizontal: 'center',
+  });
+  const [message,setMessage] = useState("Login Successfully")
+  const [snakcolor,setSnackColor]= useState("success")
+  const { vertical, horizontal, open } = state;
+
   const dispatch = useDispatch();
   //--------------------RTK Query--------------------
   const {data:loginData,refetch:refetchLogin}= useGetLoginDataQuery()
@@ -23,12 +42,29 @@ const LoginPag = () => {
     try {
       const response = await validate(values);
       refetchLogin()
+      if(response.error){
+        setState({ vertical: 'top',
+        horizontal: 'center',
+         open: true });
+         setSnackColor("error")
+        setMessage("Somthing Went Wrong")
+      }
       console.log("response", response);
       if (response?.data.status) {
         dispatch(loginStatus(response?.data.name));
-        alert("Login Successfully");
-        console.log("User found:");
+        setState({ vertical: 'top',
+        horizontal: 'center',
+         open: true });
+         setSnackColor("success")
+        setMessage("Login Successfully")
+        // alert("Login Successfully");
+        console.log("User found"); 
       } else {
+        setState({ vertical: 'top',
+        horizontal: 'center',
+         open: true });
+         setSnackColor("error")
+        setMessage(response?.data.name)
         console.log(response?.data.name);
       }
     } catch (error) {
@@ -46,7 +82,11 @@ const LoginPag = () => {
       validationSchema: signUpSchema,
       onSubmit: submitHandler,
     });
-
+  
+    const handleClose = () => {
+      setState({ ...state, open: false });
+    };
+  
   return (
     <div>
       <br />
@@ -103,7 +143,9 @@ const LoginPag = () => {
               </p>{" "}
               <h4>
                 {" "}
-                <button type="submit" id="submit" class="co">
+                <button type="submit" id="submit" class="co" variant="outlined"
+                //  onClick={handleClick({ vertical: 'top', horizontal: 'center' })}
+                 >
                   LOGIN
                 </button>
               </h4>
@@ -119,6 +161,16 @@ const LoginPag = () => {
           <br />
         </div>
       </div>
+          {/* alert snakbar start */}
+          <Snackbar 
+          anchorOrigin={{ vertical, horizontal }}
+          key={vertical + horizontal}
+          open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity={snakcolor}  sx={{ width: '100%' }}>
+          {message}
+        </Alert>
+      </Snackbar>
+            {/* alert snakbar end */}
     </div>
   );
 };
