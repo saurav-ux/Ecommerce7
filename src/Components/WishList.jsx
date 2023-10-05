@@ -6,6 +6,8 @@ import noImage from '../Images/noItem.avif'
 const WishList = () => {
   const dispatch = useDispatch();
   const containerData = useSelector((state) => state.containerr.addproduct);
+  const totalPrice = useSelector((state) => state.containerr.count);
+  console.log("counr",totalPrice)
   return (
     <>
     {containerData.length==0
@@ -43,6 +45,12 @@ const WishList = () => {
             );
           })}
         </Grid>
+      </div>
+      <hr/>
+      <div>
+        <h4>
+      Subtotal ({containerData.length} items): Rs {totalPrice}
+      </h4>
       </div>
     </div>
 }

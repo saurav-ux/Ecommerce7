@@ -1,42 +1,45 @@
-*{
+* {
     margin: 0;
 }
 
-.body{
+.body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background-color: rgb(255, 239, 242);
-    /* width: 100%; */
-    margin-top: -38px;
+}
+
+.login {
+
+    width: 30%;
+    text-align: center;
+    background-color: white;
 
 }
-.login{
-    width: 30%;
-  text-align: center;  
-    background-color: white;
-  margin-left: 500px;
- margin-top: 50px;
-}
-img{
+
+img {
     width: 100%;
 }
-input{
-    padding: 6px;
-}
-cite{
+
+cite {
     font-weight: bold;
     color: hotpink;
 }
-button{
+
+button {
     background-color: rgb(250, 6, 128);
     width: 70%;
-   border-radius: 4px;
+    border-radius: 4px;
     border: none;
 
 }
 
-.co{
+.co {
     color: white;
     padding: 6px;
 }
 
+.textfield {
+    width: 100%;
 
-
+}

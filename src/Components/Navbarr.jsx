@@ -6,13 +6,15 @@ import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
 import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
-import logo from "../Images/myntralogo.png";
+// import logo from "../Images/myntralogo.png";
+import logo from "../Images/myntralogoSmall.png";
 import { useSelector } from "react-redux";
 function Navbarr() {
   const count = useSelector((state) => state.containerr.addproduct);
+  const loginStatus = useSelector((state) => state.containerr.logstatus);
 
   return (
-    <Navbar bg="white" expand="lg" className="navbar fixed-top">
+    <Navbar bg="white" className="navbar fixed-top">
       <Container fluid>
         <Link to="/">
           {" "}
@@ -48,12 +50,12 @@ function Navbarr() {
               <Nav.Link href="#content5">BEAUTY</Nav.Link>{" "}
             </div>
           </Nav>
+          {loginStatus === "" ? "" : "Welcome " + loginStatus}
           <Link to="/signin">
             {" "}
             <dfn title="Login/Signup">
               {" "}
               <a href="login.html">
-                {" "}
                 <i class="fas fa-user-alt"></i>{" "}
               </a>{" "}
             </dfn>{" "}
@@ -63,7 +65,10 @@ function Navbarr() {
             <dfn title="Wishlist">
               {" "}
               <a href="wishlist.html">
-                <i class="fas fa-heart"> {count.length===0? " " :count.length}</i>
+                <i class="fas fa-heart">
+                  {" "}
+                  {count.length === 0 ? " " : count.length}
+                </i>
               </a>{" "}
             </dfn>
           </Link>
