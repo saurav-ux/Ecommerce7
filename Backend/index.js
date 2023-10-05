@@ -1,3 +1,5 @@
+import dotenv from 'dotenv'
+dotenv.config()
 import express from 'express'
 import './Database/connection.js'
 import router from './Database/Model/Router/login.js';
