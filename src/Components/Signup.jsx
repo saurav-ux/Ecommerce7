@@ -1,12 +1,16 @@
-import React from "react";
+import React,{useState} from "react";
 import { Link } from "react-router-dom";
 import { useGetLoginDataQuery, useSignupMutation } from "../Services/loginApi";
 import loginImage from "../Images/loginImage.webp";
 import style from "./login.css";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
 import { useFormik } from "formik";
 import * as Yup from "yup";
 import { useSelector } from "react-redux";
 import { DialogContent, TextField } from "@mui/material";
+
+
 const signUpSchema = Yup.object({
   name: Yup.string().min(2).max(25).required("Please enter your name"),
   email: Yup.string().email().required("Please enter your name"),
@@ -16,7 +20,24 @@ const signUpSchema = Yup.object({
     .oneOf([Yup.ref("password"), null], "Password must match"),
 });
 
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
+
 const SignUp = () => {
+ 
+  //handlecStates
+  const [state, setState] = useState({
+    open: false,
+    vertical: 'top',
+    horizontal: 'center',
+  });
+  const [message,setMessage] = useState("Login Successfully")
+  const [snakcolor,setSnackColor]= useState("success")
+  const { vertical, horizontal, open } = state;
+
+
   const loginStatus = useSelector((state) => state.containerr.logstatus);
   console.log("loginStatus ", loginStatus);
 
@@ -34,7 +55,28 @@ const SignUp = () => {
 
     try {
       const response = await createSignUp(data);
+      if(response.error){
+        setState({ vertical: 'top',
+        horizontal: 'center',
+         open: true });
+         setSnackColor("error")
+        setMessage("Somthing Went Wrong")
+      }
+      if(response.data){
+      setState({ vertical: 'top',
+      horizontal: 'center',
+       open: true });
+       setSnackColor("success")
+      setMessage("Signup Successfully")
       console.log(response);
+      }
+      else{
+        setState({ vertical: 'top',
+        horizontal: 'center',
+         open: true });
+         setSnackColor("error")
+        setMessage("Email Already Exists")
+      }
     } catch (error) {
       console.error("Error creating the user:", error);
     }
@@ -56,6 +98,10 @@ const SignUp = () => {
       //     console.log("Values",values)
       // }
     });
+    const handleClose = () => {
+      setState({ ...state, open: false });
+    };
+
   return (
     <div>
       <br />
@@ -158,6 +204,16 @@ const SignUp = () => {
           <br />
         </div>
       </div>
+         {/* alert snakbar start */}
+         <Snackbar 
+          anchorOrigin={{ vertical, horizontal }}
+          key={vertical + horizontal}
+          open={open} autoHideDuration={6000} onClose={handleClose}>
+        <Alert onClose={handleClose} severity={snakcolor} sx={{ width: '100%' }}>
+          {message}
+        </Alert>
+      </Snackbar>
+            {/* alert snakbar end */}
     </div>
   );
 };
