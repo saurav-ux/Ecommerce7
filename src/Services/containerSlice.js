@@ -3,18 +3,17 @@ import { createSlice } from "@reduxjs/toolkit";
 const initialState = {
   count: 0,
   addproduct: [],
+  logstatus:""
 };
 const containerSlice = createSlice({
   name: "cake",
   initialState,
   reducers: {
-    totalCost: (state, action) => {
-      state.count = state.count + action.payload.price;
-    },
     addItem: (state, action) => {
       return {
         ...state,
         addproduct: [...state.addproduct, action.payload],
+        count :state.count + action.payload.price
       };
     },
     removeItem: (state, action) => {
@@ -32,8 +31,11 @@ const containerSlice = createSlice({
         addproduct: newBasket,
       };
     },
+    loginStatus:(state,action)=>{
+      state.logstatus=action.payload
+    }
   },
 });
 
 export default containerSlice.reducer;
-export const { totalCost, addItem, removeItem } = containerSlice.actions;
+export const { addItem, removeItem ,loginStatus} = containerSlice.actions;
