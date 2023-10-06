@@ -10,7 +10,7 @@ const WishList = () => {
   console.log("counr",totalPrice)
   return (
     <>
-    {containerData.length==0
+    {containerData.length===0
     ?
     <div >
     <img src={noImage} className="noImage"/>
