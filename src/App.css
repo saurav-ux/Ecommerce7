@@ -283,3 +283,22 @@ li {
     display: flex;
   }
 }
+
+.centered-content {
+  margin-top: 2em;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100vh; 
+  text-align: center;
+}
+.text{
+  color: gray;
+ 
+}
+
+.loginImg img {
+  max-width: 100%;
+  height: auto;
+}

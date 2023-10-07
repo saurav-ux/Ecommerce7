@@ -8,11 +8,16 @@ import Nav from "react-bootstrap/Nav";
 import Navbar from "react-bootstrap/Navbar";
 // import logo from "../Images/myntralogo.png";
 import logo from "../Images/myntralogoSmall.png";
-import { useSelector } from "react-redux";
+import { useSelector ,useDispatch} from "react-redux";
+import {loginStatus } from "../Services/containerSlice";
 function Navbarr() {
   const count = useSelector((state) => state.containerr.addproduct);
-  const loginStatus = useSelector((state) => state.containerr.logstatus);
-
+  const loginName = useSelector((state) => state.containerr.logstatus);
+  const dispatch = useDispatch()
+  
+  const handleLogout = ()=>{
+    dispatch(loginStatus(""))
+  }
   return (
     <Navbar bg="white" expand="lg" className='navbar fixed-top'>
     <Container fluid>
@@ -30,11 +35,17 @@ function Navbarr() {
          <div className="bor d">  <Nav.Link href="#content4">HOME & LIVING</Nav.Link></div>
           <div className="bor e">  <Nav.Link href="#content5">BEAUTY</Nav.Link>     </div>   
         </Nav>
-        {loginStatus === "" ? "" : "Welcome " + loginStatus}
-        <Link to="/signin">   <dfn title="Login/Signup"> 
-        <a href="login.html"> <i class="fas fa-user-alt"></i> </a>
-         </dfn> 
-         </Link>
+        {loginName === "" ? "" : <b>Welcome {loginName}</b>}
+        {loginName !== "" ?
+          <Button variant="outline-success" style={{width:80,marginLeft:20}}  onClick={handleLogout}>Logout</Button>
+          :
+          <Link to="/login"> 
+            <dfn title="Login/Signup"> 
+              <a href="login.html"> <i class="fas fa-user-alt"></i> </a>
+            </dfn> 
+          </Link>
+        }
+      
          <Link to="/wishlist"> <dfn title="Wishlist">  <a href="wishlist.html"><i class="fas fa-heart"> 
          {count.length === 0 ? " " : " "+count.length}
          </i></a>   </dfn></Link>
@@ -47,7 +58,7 @@ function Navbarr() {
             className="me-2"
             aria-label="Search"
           />
-          <Button variant="outline-success">Search</Button>
+          {/* <Button variant="outline-success">Search</Button> */}
         </Form>
       </Navbar.Collapse>
     </Container>
@@ -91,7 +102,7 @@ function Navbarr() {
     //           <Nav.Link href="#content5">BEAUTY</Nav.Link>{" "}
     //         </div>
     //       </Nav>
-    //       {loginStatus === "" ? "" : "Welcome " + loginStatus}
+    //       {loginName === "" ? "" : "Welcome " + loginName}
     //       <Link to="/signin">
     //         {" "}
     //         <dfn title="Login/Signup">

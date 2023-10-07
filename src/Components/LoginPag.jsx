@@ -10,7 +10,7 @@ import { DialogContent, TextField } from "@mui/material";
 import * as Yup from "yup";
 import { loginStatus } from "../Services/containerSlice";
 import { useDispatch } from "react-redux";
-
+import { useNavigate } from "react-router-dom";
 
 const signUpSchema = Yup.object({
   email: Yup.string().email().required("Please enter your name"),
@@ -34,6 +34,7 @@ const LoginPag = () => {
   const { vertical, horizontal, open } = state;
 
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   //--------------------RTK Query--------------------
   const {data:loginData,refetch:refetchLogin}= useGetLoginDataQuery()
   const [validate] = useValidateLoginMutation();
@@ -59,6 +60,7 @@ const LoginPag = () => {
         setMessage("Login Successfully")
         // alert("Login Successfully");
         console.log("User found"); 
+        navigate('/')
       } else {
         setState({ vertical: 'top',
         horizontal: 'center',
