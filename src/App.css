@@ -279,11 +279,13 @@ li {
   }
 }
 
+
 @media (min-width: 992px) {
   .options {
     display: flex;
   }
 }
+
 
 .centered-content {
   margin-top: 2em;

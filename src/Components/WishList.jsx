@@ -32,7 +32,7 @@ const WishList = () => {
     {containerData.length===0
       ?
       <div >
-      <img src={noImage} className="noImage"/>
+      <img src={noImage} className="noImage" alt="wishlist"/>
       </div>
       :   
       <div className="checkout"style={{margin:25}}>
@@ -43,7 +43,7 @@ const WishList = () => {
             {containerData?.map((row) => {
               return (
                 <>
-                  <Grid item xs={12} sm={6} md={4} lg={2} key={row.id}>
+                  <Grid item xs={12} sm={6} md={4} lg={2} key={row._id}>
                     <Card className="cardSize">
                       <div class="wishimg items_img">
                         <img src={row.imgName} alt="" />
