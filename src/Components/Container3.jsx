@@ -20,7 +20,7 @@ const Container3 = () => {
         <Grid container spacing={4}>
           {containerData?.map((row) => {
             return (
-              <Grid item xs={12} sm={6} md={4} lg={2} key={row.id}>
+              <Grid item xs={12} sm={6} md={4} lg={2} key={row._id}>
                 <Card className="cardSize">
                   <div className="items_img">
                     <div class="images">

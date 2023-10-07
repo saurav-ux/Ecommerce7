@@ -12,7 +12,7 @@ const WishList = () => {
   const containerData = useSelector((state) => state.containerr.addproduct);
   const totalPrice = useSelector((state) => state.containerr.count);
   const loginName = useSelector((state) => state.containerr.logstatus);
-  console.log("counr",totalPrice)
+  // console.log("counr",totalPrice)
   return (
     <>
     {loginName === ""?

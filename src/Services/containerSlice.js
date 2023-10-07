@@ -34,9 +34,16 @@ const containerSlice = createSlice({
     },
     loginStatus:(state,action)=>{
       state.logstatus=action.payload
+    },
+    logout:(state,action)=>{
+      // state.count=0
+      return{
+        addproduct:[],
+        count: 0
+      }
     }
   },
 });
 
 export default containerSlice.reducer;
-export const { addItem, removeItem ,loginStatus} = containerSlice.actions;
+export const { addItem, removeItem ,loginStatus,logout} = containerSlice.actions;

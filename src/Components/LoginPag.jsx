@@ -23,7 +23,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 
 const LoginPag = () => {
 
- 
+ //handle snakvar
   const [state, setState] = useState({
     open: false,
     vertical: 'top',
@@ -50,24 +50,26 @@ const LoginPag = () => {
          setSnackColor("error")
         setMessage("Incorrect Password or Email")
       }
-      console.log("response", response);
+      // console.log("response", response);
       if (response?.data.status) {
         dispatch(loginStatus(response?.data.name));
         setState({ vertical: 'top',
         horizontal: 'center',
          open: true });
          setSnackColor("success")
-        setMessage("Login Successfully")
+         setMessage("Login Successfully")
         // alert("Login Successfully");
-        console.log("User found"); 
-        navigate('/')
+        // console.log("User found"); 
+        setTimeout(() => {
+          navigate('/');
+        }, 500);
       } else {
         setState({ vertical: 'top',
         horizontal: 'center',
          open: true });
          setSnackColor("error")
         setMessage(response?.data.name)
-        console.log(response?.data.name);
+        // console.log(response?.data.name);
       }
     } catch (error) {
       console.error("Error creating the user:", error);

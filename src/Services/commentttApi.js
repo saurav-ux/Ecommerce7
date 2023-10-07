@@ -5,7 +5,7 @@ import {
 
 export const commentapi = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:3000/',
+    baseUrl: 'http://localhost:5001/',
   }),
   reducerPath: 'commentapi', 
   endpoints: (builder) => ({
@@ -18,42 +18,38 @@ export const commentapi = createApi({
 
     container1apiData: builder.query({
         query: () => ({
-          url: `/container1/`,
+          url: `/conData/`,
           method: 'GET',
         }),
       }),
 
       container2apiData: builder.query({
         query: () => ({
-          url: `/container2/`,
+          url: `/con2Data/`,
           method: 'GET',
         }),
       }),
 
       container3apiData: builder.query({
         query: () => ({
-          url: `/container3/`,
+          url: `/con3Data/`,
           method: 'GET',
         }),
       }),
       container4apiData: builder.query({
         query: () => ({
-          url: `/container4/`,
+          url: `/con4Data/`,
           method: 'GET',
         }),
       }),
       container5apiData: builder.query({
         query: () => ({
-          url: `/container5/`,
+          url: `/con5Data/`,
           method: 'GET',
         }),
       }),
-      getLoginData:builder.query({
-        query: () => ({
-          url: `/container5/`,
-          method: 'GET',
-        }),
-      }),
+    
+  
 
   }),
  
