@@ -60,10 +60,10 @@ function Footer() {
           </div>
         </div>
         <div className="detail">
-          <img src={myntra58} alt="" />
+          <img src={myntra58} alt="" style={{width:100}}/>
           <h4>100% ORIGINAL</h4>
           <br /> guarantee for all products at myntra.com <br />
-          <img src={myntra59} alt="" />
+          <img src={myntra59} alt="" style={{width:100}}/>
           <h4>Return within 30days</h4>
           <br /> of receiving your order
         </div>

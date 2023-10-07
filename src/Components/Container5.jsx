@@ -1,11 +1,55 @@
 import * as React from "react";
+import { useState } from "react";
 import { Grid } from "@mui/material";
 import { Card } from "@mui/material";
 import { useContainer5apiDataQuery } from "../Services/commentttApi";
 import { addItem } from "../Services/containerSlice";
 import { useSelector,useDispatch } from "react-redux";
+import Snackbar from "@mui/material/Snackbar";
+import MuiAlert from "@mui/material/Alert";
+
+const Alert = React.forwardRef(function Alert(props, ref) {
+  return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
+});
+
+
 const Container5 = () => {
-  const dispatch = useDispatch()
+
+  const [state, setState] = useState({
+    open: false,
+    vertical: "top",
+    horizontal: "center",
+  });
+  const [message, setMessage] = useState("Login Successfully");
+  const [snakcolor, setSnackColor] = useState("success");
+  const { vertical, horizontal, open } = state;
+
+  const handleClose = () => {
+    setState({ ...state, open: false });
+  };
+
+  const loginName = useSelector((state) => state.containerr.logstatus);
+
+  const handleClick = (row) => {
+    if (loginName === "" || loginName === undefined ) {
+      setState({ vertical: "top", horizontal: "center", open: true });
+      setSnackColor("error");
+      setMessage("Please Login First");
+      
+    } else {
+      dispatch(
+        addItem({
+          id: row._id,
+          price: row.price,
+          imgName: row.imgName,
+          cutprice: row.cutprice,
+          off: row.off,
+        })
+      );
+    }
+  };
+
+const dispatch = useDispatch()
 
     //-------------------RTK QueryFetch-------------------------
     const {
@@ -25,7 +69,7 @@ const Container5 = () => {
         <Grid container spacing={4}>
           {containerData?.map((row) => {
             return (
-              <Grid item xs={12} sm={6} md={4} lg={2} key={row.id}>
+              <Grid item xs={12} sm={6} md={4} lg={2} key={row._id}>
                 <Card className="cardSize">
                   <div class="wishimg items_img">
                     <img src={row.imgName} alt="" />
@@ -36,17 +80,7 @@ const Container5 = () => {
                   </p>
                   <div
                     class="move"
-                    onClick={() =>
-                      dispatch(
-                        addItem({
-                          id:row.id,
-                          price: row.price,
-                          imgName: row.imgName,
-                          cutprice: row.cutprice,
-                          off: row.off,
-                        })
-                      )
-                    }
+                    onClick={() => handleClick(row)}
                   >
                     <h4>MOVE TO BAG</h4>
                   </div>
@@ -58,7 +92,23 @@ const Container5 = () => {
       </div>
 
       <br/><br/>
-
+   {/* alert snakbar start */}
+   <Snackbar
+        anchorOrigin={{ vertical, horizontal }}
+        key={vertical + horizontal}
+        open={open}
+        autoHideDuration={6000}
+        onClose={handleClose}
+      >
+        <Alert
+          onClose={handleClose}
+          severity={snakcolor}
+          sx={{ width: "100%" }}
+        >
+          {message}
+        </Alert>
+      </Snackbar>
+      {/* alert snakbar end */}
     </div>
   );
 }

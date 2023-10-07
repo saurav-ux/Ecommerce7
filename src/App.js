@@ -29,10 +29,10 @@ function App() {
               <div>
                 <Navbarr />
                 <Crousel1 />
+                <Container4 />
                 <Container1 />
                 <Container2 />
-                <Container3 />
-                <Container4 />
+                <Container3 />            
                 <Container5 />
                 <Footer />
               </div>

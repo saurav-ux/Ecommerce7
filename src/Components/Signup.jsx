@@ -39,7 +39,7 @@ const SignUp = () => {
 
 
   const loginStatus = useSelector((state) => state.containerr.logstatus);
-  console.log("loginStatus ", loginStatus);
+  // console.log("loginStatus ", loginStatus);
 
   //--------------RTK Query Fetch------------------
   const { data: login } = useGetLoginDataQuery();
@@ -68,7 +68,7 @@ const SignUp = () => {
        open: true });
        setSnackColor("success")
       setMessage("Signup Successfully")
-      console.log(response);
+      // console.log(response);
       }
       else{
         setState({ vertical: 'top',
