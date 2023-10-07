@@ -36,7 +36,7 @@ const LoginPag = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
   //--------------------RTK Query--------------------
-  const {data:loginData,refetch:refetchLogin}= useGetLoginDataQuery()
+  const {refetch:refetchLogin}= useGetLoginDataQuery()
   const [validate] = useValidateLoginMutation();
 
   const submitHandler = async (values, action) => {
@@ -148,6 +148,7 @@ const LoginPag = () => {
               <h4>
                 {" "}
                 <button type="submit" id="submit" class="co" variant="outlined"
+                className="loginButton"
                 //  onClick={handleClick({ vertical: 'top', horizontal: 'center' })}
                  >
                   LOGIN
