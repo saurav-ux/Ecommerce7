@@ -39,7 +39,8 @@ const containerSlice = createSlice({
       // state.count=0
       return{
         addproduct:[],
-        count: 0
+        count: 0,
+        logstatus:""
       }
     }
   },
