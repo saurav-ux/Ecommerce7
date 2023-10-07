@@ -10,7 +10,7 @@ import { DialogContent, TextField } from "@mui/material";
 import * as Yup from "yup";
 import { loginStatus } from "../Services/containerSlice";
 import { useDispatch } from "react-redux";
-
+import { useNavigate } from "react-router-dom";
 
 const signUpSchema = Yup.object({
   email: Yup.string().email().required("Please enter your name"),
@@ -23,7 +23,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 
 const LoginPag = () => {
 
- 
+ //handle snakvar
   const [state, setState] = useState({
     open: false,
     vertical: 'top',
@@ -34,6 +34,7 @@ const LoginPag = () => {
   const { vertical, horizontal, open } = state;
 
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   //--------------------RTK Query--------------------
   const {data:loginData,refetch:refetchLogin}= useGetLoginDataQuery()
   const [validate] = useValidateLoginMutation();
@@ -49,23 +50,26 @@ const LoginPag = () => {
          setSnackColor("error")
         setMessage("Incorrect Password or Email")
       }
-      console.log("response", response);
+      // console.log("response", response);
       if (response?.data.status) {
         dispatch(loginStatus(response?.data.name));
         setState({ vertical: 'top',
         horizontal: 'center',
          open: true });
          setSnackColor("success")
-        setMessage("Login Successfully")
+         setMessage("Login Successfully")
         // alert("Login Successfully");
-        console.log("User found"); 
+        // console.log("User found"); 
+        setTimeout(() => {
+          navigate('/');
+        }, 500);
       } else {
         setState({ vertical: 'top',
         horizontal: 'center',
          open: true });
          setSnackColor("error")
         setMessage(response?.data.name)
-        console.log(response?.data.name);
+        // console.log(response?.data.name);
       }
     } catch (error) {
       console.error("Error creating the user:", error);

@@ -19,7 +19,7 @@ const containerSlice = createSlice({
     removeItem: (state, action) => {
       // console.log("action.payload",action.payload)
       const index = state.addproduct.findIndex(
-        (basketItem) => basketItem.id === action.payload
+        (basketItem) => basketItem.id === action.payload.id
       );
       let newBasket = [...state.addproduct];
       if (index >= 0) {
@@ -29,13 +29,21 @@ const containerSlice = createSlice({
       return {
         ...state,
         addproduct: newBasket,
+        count :state.count - action.payload.price
       };
     },
     loginStatus:(state,action)=>{
       state.logstatus=action.payload
+    },
+    logout:(state,action)=>{
+      // state.count=0
+      return{
+        addproduct:[],
+        count: 0
+      }
     }
   },
 });
 
 export default containerSlice.reducer;
-export const { addItem, removeItem ,loginStatus} = containerSlice.actions;
+export const { addItem, removeItem ,loginStatus,logout} = containerSlice.actions;
