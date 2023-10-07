@@ -21,4 +21,17 @@ product2Router.get('/',async (req,res)=>{
     }
 })
 
+// update details
+product2Router.patch("/:id", async (req, res) => {
+    try {
+      const _id = req.params.id;
+      //When you set { new: true },
+      // it tells Mongoose to return the modified document (the updated version) after the update operation is complete.
+      await Product2Data.findByIdAndUpdate(_id, req.body, { new: true });
+      res.send("Data Updated");
+    } catch (e) {
+      res.status(500).send("Internal Server Error: ", e);
+    }
+  });
+
 export default product2Router
