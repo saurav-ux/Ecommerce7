@@ -1,15 +1,14 @@
 import React,{useState} from "react";
 import { Link } from "react-router-dom";
-import { useGetLoginDataQuery, useSignupMutation } from "../Services/loginApi";
+import { useSignupMutation } from "../Services/loginApi";
 import loginImage from "../Images/loginImage.webp";
 import style from "./login.css";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { useFormik } from "formik";
 import * as Yup from "yup";
-import { useSelector } from "react-redux";
 import { DialogContent, TextField } from "@mui/material";
-
+import { useNavigate } from "react-router-dom";
 
 const signUpSchema = Yup.object({
   name: Yup.string().min(2).max(25).required("Please enter your name"),
@@ -38,11 +37,10 @@ const SignUp = () => {
   const { vertical, horizontal, open } = state;
 
 
-  const loginStatus = useSelector((state) => state.containerr.logstatus);
+  // const loginStatus = useSelector((state) => state.containerr.logstatus);
   // console.log("loginStatus ", loginStatus);
 
-  //--------------RTK Query Fetch------------------
-  const { data: login } = useGetLoginDataQuery();
+  const  navigate = useNavigate()
   const [createSignUp] = useSignupMutation();
   //   console.log("data", login);
 
@@ -68,6 +66,9 @@ const SignUp = () => {
        open: true });
        setSnackColor("success")
       setMessage("Signup Successfully")
+      setTimeout(() => {
+        navigate('/login');
+      }, 500);
       // console.log(response);
       }
       else{
@@ -186,7 +187,9 @@ const SignUp = () => {
               </p>{" "}
               <h4>
                 {" "}
-                <button type="submit" id="submit" class="co">
+                <button type="submit" id="submit" class="co"
+                className="loginButton"
+                >
                 {/* <Link to="/login"> */}
                   REGISTRATION
                  {/* </Link> */}

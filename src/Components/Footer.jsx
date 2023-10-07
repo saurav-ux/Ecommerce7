@@ -1,6 +1,4 @@
 import React from "react";
-import Container from "react-bootstrap/esm/Container";
-import { Row, Col } from "react-bootstrap";
 import myntra56 from '../Images/myntra56.png'
 import myntra57 from '../Images/myntra57.png'
 import myntra58 from '../Images/myntra58.png'
