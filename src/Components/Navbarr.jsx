@@ -11,7 +11,7 @@ import Navbar from "react-bootstrap/Navbar";
 // import logo from "../Images/myntralogo.png";
 import logo from "../Images/myntralogoSmall.png";
 import { useSelector ,useDispatch} from "react-redux";
-import {loginStatus } from "../Services/containerSlice";
+// import {loginStatus } from "../Services/containerSlice";
 import { logout } from "../Services/containerSlice";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
@@ -50,7 +50,7 @@ function Navbarr() {
   return (
     <Navbar bg="white" expand="lg" className='navbar fixed-top'>
     <Container fluid>
-     <Link to="/"> <Navbar.Brand href="#"><img src={logo} id="logo2 "/></Navbar.Brand></Link>
+     <Link to="/"> <Navbar.Brand href="#"><img src={logo} id="logo2 " alt="logo"/></Navbar.Brand></Link>
       <Navbar.Toggle aria-controls="navbarScroll" />
       <Navbar.Collapse id="navbarScroll">
         <Nav

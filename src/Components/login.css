@@ -10,12 +10,20 @@
 }
 
 .login {
-
     width: 30%;
     text-align: center;
     background-color: white;
-
 }
+
+
+/* for  mobile */
+@media (max-width: 425px) {   
+.login {
+    width: 100%;
+    text-align: center;
+    background-color: white;
+}
+  }
 
 img {
     width: 100%;
@@ -26,11 +34,13 @@ cite {
     color: hotpink;
 }
 
-button {
+.loginButton {
     background-color: rgb(250, 6, 128);
-    width: 70%;
+    width: 50%;
     border-radius: 4px;
     border: none;
+    padding: 10px;
+    color: white;
 
 }
 
