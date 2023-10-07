@@ -40,7 +40,7 @@ function Navbarr() {
      open: true });
      setSnackColor("success")
      setMessage("Logout Successfully")
-    dispatch(loginStatus(""))
+    //  dispatch(loginStatus(""))
     dispatch(logout(0))
   }
 
