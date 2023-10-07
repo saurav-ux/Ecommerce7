@@ -29,7 +29,7 @@ loginDetails.methods.generateAuthToken = async function(){
     try {
         console.log("this",this._id.toString())  
         const token = jwt.sign({_id:this._id.toString()},process.env.SECRET, {
-            expiresIn: '24hr',
+            expiresIn: '24h',
           })
         this.tokens = this.tokens.concat({token:token})
         await this.save()
