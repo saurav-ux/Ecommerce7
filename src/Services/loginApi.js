@@ -5,7 +5,7 @@ import {
 
 export const loginApi = createApi({
     baseQuery:fetchBaseQuery({
-        baseUrl: 'http://localhost:5001/'
+        baseUrl: 'https://sauravvbackend.vercel.app/'
     }),
     reducerPath: 'loginApi',
     endpoints:(builder)=>({
