@@ -5,7 +5,7 @@ import {
 
 export const commentapi = createApi({
   baseQuery: fetchBaseQuery({
-    baseUrl: 'http://localhost:5001/',
+    baseUrl: 'https://sauravvbackend.vercel.app/',
   }),
   reducerPath: 'commentapi', 
   endpoints: (builder) => ({

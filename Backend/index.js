@@ -16,10 +16,14 @@ import auth from "./Middleware/auth.js";
 import cors from "cors";
 const app = express();
 app.use(cors());
+app.use(cors({
+  origin:['https://deploy-mern-1whq.vercel.app'],
+  methods:['POST','GET','PATCH'],
+  credentials:true
+}))
 const PORT = process.env.PORT || 5001;
 app.use(express.json());
 app.use(cookieParser());
-
 app.use("/login", router);
 // below is jwt autentication
 // app.use("/conData", auth, productRouter);
@@ -36,3 +40,4 @@ app.get("/", (req, res) => {
 app.listen(PORT, () =>
   console.log(`Server is running on : http://localhost:${PORT}`)
 );
+
