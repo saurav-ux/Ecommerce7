@@ -15,7 +15,7 @@ const Container1 = () => {
     isLoading,
     isError,
   } = useContainer1apiDataQuery();
-  // console.log("data",containerData[0].imgName)
+ // console.log("data",containerData)
 
   return (
     <div id="content1" style={{margin:25}}>
@@ -26,7 +26,7 @@ const Container1 = () => {
       {isLoading ? "Loading..." : ""}
       <div className="p-24 w-full">
         <Grid container spacing={4}>
-          {containerData?.map((row) => {
+          {containerData!== undefined  && containerData?.map((row) => {
             return (
               <Grid item xs={12} sm={6} md={4} lg={2} key={row._id}>
                 <Card className="cardSize">

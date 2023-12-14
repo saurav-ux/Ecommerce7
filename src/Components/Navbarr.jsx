@@ -1,4 +1,4 @@
-import React ,{useState}from "react";
+import React ,{useState,useEffect}from "react";
 import { Link } from "react-router-dom";
 import Button from "react-bootstrap/Button";
 import "bootstrap/dist/css/bootstrap.min.css";
@@ -13,7 +13,8 @@ import logo from "../Images/myntralogoSmall.png";
 import { useSelector ,useDispatch} from "react-redux";
 // import {loginStatus } from "../Services/containerSlice";
 import { logout } from "../Services/containerSlice";
-
+import { useGetLoginDataQuery } from "../Services/loginApi";
+import { useContainer1apiDataQuery } from "../Services/commentttApi";
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
@@ -30,11 +31,18 @@ function Navbarr() {
   const [snakcolor,setSnackColor]= useState("success")
   const { vertical, horizontal, open } = state;
 
+
+  //---------------------------RTK Query----------------
+  const {isError} = useGetLoginDataQuery()
   const count = useSelector((state) => state.containerr.addproduct);
   const loginName = useSelector((state) => state.containerr.logstatus);
   const dispatch = useDispatch()
-  
+  const token = localStorage.getItem('token');
+  const name1 = localStorage.getItem('name');
   const handleLogout = ()=>{
+
+    localStorage.removeItem('token');
+    localStorage.removeItem('name');
     setState({ vertical: 'top',
     horizontal: 'center',
      open: true });
@@ -43,6 +51,10 @@ function Navbarr() {
     //  dispatch(loginStatus(""))
     dispatch(logout(0))
   }
+
+  useEffect(()=>{
+
+  },[handleLogout])
 
   const handleClose = () => {
     setState({ ...state, open: false });
@@ -64,9 +76,12 @@ function Navbarr() {
          <div className="bor d">  <Nav.Link href="#content4">HOME & LIVING</Nav.Link></div>
           <div className="bor e">  <Nav.Link href="#content5">BEAUTY</Nav.Link>     </div>   
         </Nav>
-        {loginName === "" || loginName === undefined ? "" : <b>Welcome {loginName}</b>}
+        {/* {loginName === "" || loginName === undefined ? "" : <b>Welcome {loginName}</b>} */}
+       { console.log("nameeeee",name1)}
+     {name1===null || name1 === undefined || isError? "" : <b>Welcome {name1}</b>}
        
-        {loginName === "" || loginName === undefined ?
+       {/* {loginName === "" || loginName === undefined ? */}
+         {name1===null || name1 === undefined || isError ?
           <Link to="/login"> 
             <dfn title="Login/Signup"> 
               <a href="login.html"> <i class="fas fa-user-alt"></i> </a>
