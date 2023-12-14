@@ -5,6 +5,7 @@ import { Card } from "@mui/material";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
 import { useContainer4apiDataQuery } from "../Services/commentttApi";
+import { useGetLoginDataQuery } from "../Services/loginApi";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem } from "../Services/containerSlice";
 
@@ -22,6 +23,14 @@ const Container4 = () => {
   const [snakcolor, setSnackColor] = useState("success");
   const { vertical, horizontal, open } = state;
 
+    //-------------------RTK QueryFetch-------------------------
+    const {
+      data: containerData,
+      isLoading,
+      isError,
+    } = useContainer4apiDataQuery();
+    const{isError: loginIsError} = useGetLoginDataQuery()
+
   const handleClose = () => {
     setState({ ...state, open: false });
   };
@@ -30,7 +39,7 @@ const Container4 = () => {
   const dispatch = useDispatch();
   const loginName = useSelector((state) => state.containerr.logstatus);
   const handleClick = (row) => {
-    if (loginName === "" || loginName === undefined ) {
+    if (loginName === "" || loginName === undefined ||loginIsError) {
       setState({ vertical: "top", horizontal: "center", open: true });
       setSnackColor("error");
       setMessage("Please Login First");
@@ -48,12 +57,7 @@ const Container4 = () => {
     }
   };
   
-  //-------------------RTK QueryFetch-------------------------
-  const {
-    data: containerData,
-    isLoading,
-    isError,
-  } = useContainer4apiDataQuery();
+
 
   return (
     <div id="content4" style={{ margin: 25 }}>

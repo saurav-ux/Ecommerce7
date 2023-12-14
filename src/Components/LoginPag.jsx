@@ -36,13 +36,14 @@ const LoginPag = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate()
   //--------------------RTK Query--------------------
-  const {refetch:refetchLogin}= useGetLoginDataQuery()
+  const {refetch:refetchLogin,data:login7}= useGetLoginDataQuery()
+  console.log("login7",login7)
   const [validate] = useValidateLoginMutation();
 
   const submitHandler = async (values, action) => {
     try {
       const response = await validate(values);
-      refetchLogin()
+      // refetchLogin()
       if(response.error){
         setState({ vertical: 'top',
         horizontal: 'center',
@@ -50,9 +51,24 @@ const LoginPag = () => {
          setSnackColor("error")
         setMessage("Incorrect Password or Email")
       }
+   
       // console.log("response", response);
       if (response?.data.status) {
-        dispatch(loginStatus(response?.data.name));
+        const token = response?.data?.token;
+         const name = response?.data?.name
+        if (token) {
+          localStorage.setItem("token", token);
+          localStorage.setItem("name", name)
+          setTimeout(() => {
+            navigate('/');
+          }, 500);
+          refetchLogin()
+        } else {
+          console.error("No token received");
+        }
+       // dispatch(loginStatus(response?.data.name));
+      
+       dispatch(loginStatus(name));
         setState({ vertical: 'top',
         horizontal: 'center',
          open: true });
@@ -60,9 +76,9 @@ const LoginPag = () => {
          setMessage("Login Successfully")
         // alert("Login Successfully");
         // console.log("User found"); 
-        setTimeout(() => {
-          navigate('/');
-        }, 500);
+        // setTimeout(() => {
+        //   navigate('/');
+        // }, 500);
       } else {
         setState({ vertical: 'top',
         horizontal: 'center',
