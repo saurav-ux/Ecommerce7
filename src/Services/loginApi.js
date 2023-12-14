@@ -5,7 +5,8 @@ import {
 
 export const loginApi = createApi({
     baseQuery:fetchBaseQuery({
-        baseUrl: 'https://sauravvbackend.vercel.app/'
+        // baseUrl: 'https://sauravvbackend.vercel.app/'
+        baseUrl:'http://localhost:5003'
     }),
     reducerPath: 'loginApi',
     endpoints:(builder)=>({
@@ -13,6 +14,9 @@ export const loginApi = createApi({
             query: () => ({
               url: `/login/`,
               method: 'GET',
+              headers: {
+                Authorization: localStorage.getItem('token') ? `Bearer ${localStorage.getItem('token')}` : '', // Include token in Authorization header if it exists
+              },
             }),
           }),
         signup:builder.mutation({

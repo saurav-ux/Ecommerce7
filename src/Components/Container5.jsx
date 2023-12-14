@@ -1,8 +1,9 @@
 import * as React from "react";
-import { useState } from "react";
+import { useState} from "react";
 import { Grid } from "@mui/material";
 import { Card } from "@mui/material";
 import { useContainer5apiDataQuery } from "../Services/commentttApi";
+import { useGetLoginDataQuery } from "../Services/loginApi";
 import { addItem } from "../Services/containerSlice";
 import { useSelector,useDispatch } from "react-redux";
 import Snackbar from "@mui/material/Snackbar";
@@ -24,6 +25,15 @@ const Container5 = () => {
   const [snakcolor, setSnackColor] = useState("success");
   const { vertical, horizontal, open } = state;
 
+
+    //-------------------RTK QueryFetch-------------------------
+    const {
+      data: containerData,
+      isLoading,
+      isError,
+    } = useContainer5apiDataQuery();
+    const{isError: loginIsError} = useGetLoginDataQuery()
+
   const handleClose = () => {
     setState({ ...state, open: false });
   };
@@ -31,7 +41,7 @@ const Container5 = () => {
   const loginName = useSelector((state) => state.containerr.logstatus);
 
   const handleClick = (row) => {
-    if (loginName === "" || loginName === undefined ) {
+    if (loginName === "" || loginName === undefined ||loginIsError) {
       setState({ vertical: "top", horizontal: "center", open: true });
       setSnackColor("error");
       setMessage("Please Login First");
@@ -51,12 +61,6 @@ const Container5 = () => {
 
 const dispatch = useDispatch()
 
-    //-------------------RTK QueryFetch-------------------------
-    const {
-      data: containerData,
-      isLoading,
-      isError,
-    } = useContainer5apiDataQuery();
   return (
     <div id="content5"style={{margin:25}}>
       <div className="con1header">

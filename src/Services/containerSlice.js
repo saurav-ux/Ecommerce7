@@ -1,9 +1,9 @@
 import { createSlice } from "@reduxjs/toolkit";
-
+const name = localStorage.getItem('name');
 const initialState = {
   count: 0,
   addproduct: [],
-  logstatus:""
+  logstatus:name  
 };
 const containerSlice = createSlice({
   name: "cake",
