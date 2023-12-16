@@ -10,6 +10,7 @@ import Container5 from "./Components/Container5";
 import WishList from "./Components/WishList";
 import SignUp from "./Components/Signup";
 import LoginPag from "./Components/LoginPag";
+import ShowDetail from "./Components/ShowDetail";
 import Footer from "./Components/Footer";
 import {
   BrowserRouter as Router7,
@@ -63,6 +64,16 @@ function App() {
              <>
                <Navbarr />
                <LoginPag/>
+             </>
+           }
+          />
+
+           <Route
+           path="/detail"
+           element={
+             <>
+               <Navbarr />
+               <ShowDetail/>
              </>
            }
           />
