@@ -8,7 +8,7 @@ import { useContainer4apiDataQuery } from "../Services/commentttApi";
 import { useGetLoginDataQuery } from "../Services/loginApi";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem } from "../Services/containerSlice";
-
+import { useNavigate } from "react-router-dom";
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
@@ -37,8 +37,10 @@ const Container4 = () => {
 
   // const updatedArray = useSelector((state) => state.containerr.addproduct);
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   const loginName = useSelector((state) => state.containerr.logstatus);
   const handleClick = (row) => {
+
     if (loginName === "" || loginName === undefined ||loginIsError) {
       setState({ vertical: "top", horizontal: "center", open: true });
       setSnackColor("error");
@@ -56,6 +58,12 @@ const Container4 = () => {
       );
     }
   };
+
+  const handleImage = (row)=>{
+    navigate("/detail", {
+      state: row
+    });
+  } 
   
 
 
@@ -73,7 +81,7 @@ const Container4 = () => {
             return (
               <Grid item xs={12} sm={6} md={4} lg={2} key={row._id}>
                 <Card className="cardSize">
-                  <div class="wishimg items_img">
+                  <div class="wishimg items_img" onClick={() => handleImage(row)}>
                     <img src={row.imgName} alt="" />
                   </div>
                   <p>

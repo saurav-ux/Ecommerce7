@@ -8,6 +8,7 @@ import { addItem } from "../Services/containerSlice";
 import { useSelector,useDispatch } from "react-redux";
 import Snackbar from "@mui/material/Snackbar";
 import MuiAlert from "@mui/material/Alert";
+import { useNavigate } from "react-router-dom";
 
 const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
@@ -24,6 +25,7 @@ const Container5 = () => {
   const [message, setMessage] = useState("Login Successfully");
   const [snakcolor, setSnackColor] = useState("success");
   const { vertical, horizontal, open } = state;
+  const navigate = useNavigate()
 
 
     //-------------------RTK QueryFetch-------------------------
@@ -59,6 +61,12 @@ const Container5 = () => {
     }
   };
 
+  const handleImage = (row)=>{
+    navigate("/detail", {
+      state: row
+    });
+  } 
+  
 const dispatch = useDispatch()
 
   return (
@@ -75,7 +83,7 @@ const dispatch = useDispatch()
             return (
               <Grid item xs={12} sm={6} md={4} lg={2} key={row._id}>
                 <Card className="cardSize">
-                  <div class="wishimg items_img">
+                  <div class="wishimg items_img" onClick={() => handleImage(row)}>
                     <img src={row.imgName} alt="" />
                   </div>
                   <p>

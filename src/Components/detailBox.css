@@ -1,0 +1,70 @@
+.detailBox{
+    display: flex;
+    justify-content: center; /* Horizontally centers the detailBox */
+    align-items: center; /* Vertically centers the detailBox */
+    height: 100vh; /* Makes the container full height of the viewport */
+}
+.itemSize{
+    display: flex;
+}
+.iSize{
+  
+    width: 50px; /* Set a fixed width */
+    height: 50px; /* Set a fixed height */
+    border-radius: 50%; /* Makes the divs circular */
+    border: solid 1px gray;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 5px; 
+}
+
+.isSize2{
+    /* padding: 20px; */
+    /* margin-right: 10px; */
+    font-weight: bold;
+   
+}
+
+.viewContainer2{
+    margin-left: 10px;
+}
+
+.viewImage{
+    width: 70%;
+}
+
+
+@media (min-width: 768px) {
+    .detailBox {
+      /* margin-top: 70px; */
+      /* Adjustments for larger screens */
+      flex-direction: row;
+    }
+ 
+  
+ 
+  }
+  
+  /* For smaller screens (e.g., mobile devices) */
+  @media (max-width: 767px) {
+    .detailBox {
+      /* Adjustments for smaller screens */
+      flex-direction: column;
+      margin-top: 12em;
+    }
+  
+    /* .viewContainer1{
+       width: 150%;
+    } */
+    .viewImage{
+      width: 100%;
+  }
+    .viewContainer2 {
+      /* Reset widths for smaller screens */
+      width: 100%;
+      padding: 10px; 
+      margin-left: 10px;
+    }
+  }
+  

@@ -1,4 +1,7 @@
 /* navbar */
+*{
+  cursor: pointer;
+}
 #logo2 {
   width: 40%;
   height: 10%;
@@ -304,4 +307,5 @@ li {
 .loginImg img {
   max-width: 100%;
   height: auto;
+  cursor: pointer;
 }
