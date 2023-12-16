@@ -4,9 +4,11 @@ import { Card } from "@mui/material";
 import { useContainer1apiDataQuery } from "../Services/commentttApi";
 import { useSelector, useDispatch } from "react-redux";
 import { addItem } from "../Services/containerSlice";
+import { useNavigate } from "react-router-dom";
 const Container1 = () => {
   const count = useSelector((state) => state.containerr.addproduct);
   const dispatch = useDispatch();
+  const navigate = useNavigate()
   // console.log("count", count);   //For testing
 
   //-------------------RTK QueryFetch-------------------------
