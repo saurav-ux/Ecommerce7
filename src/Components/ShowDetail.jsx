@@ -14,7 +14,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
 
 const ShowDetail = () => {
 
-  //-----handling States
+  //-----handling States------------------
   const [state, setState] = useState({
     open: false,
     vertical: "top",
