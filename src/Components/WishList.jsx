@@ -6,7 +6,12 @@ import { removeItem } from "../Services/containerSlice";
 import noImage from '../Images/noItem.avif'
 import loginImage from '../Images/loginImg.png'
 import Button from "react-bootstrap/Button";
+import { useGetLoginDataQuery } from "../Services/loginApi";
 const WishList = () => {
+
+    //---------------------------RTK Query----------------
+  const {isError} = useGetLoginDataQuery()
+
   const dispatch = useDispatch();
   const navigate = useNavigate()
   const containerData = useSelector((state) => state.containerr.addproduct);
@@ -15,7 +20,7 @@ const WishList = () => {
   // console.log("counr",totalPrice)
   return (
     <>
-    {loginName === ""?
+    {loginName === "" || isError?
     <>
      <div className="centered-content">
       <p><b>PLEASE LOGIN</b></p>
