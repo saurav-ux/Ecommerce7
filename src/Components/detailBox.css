@@ -51,7 +51,7 @@
     .detailBox {
       /* Adjustments for smaller screens */
       flex-direction: column;
-      margin-top: 12em;
+      margin-top: 10em;
     }
   
     /* .viewContainer1{
