@@ -5,7 +5,7 @@
 
 A full-stack e-commerce application inspired by Myntra, built using the MERN stack (MongoDB, Express.js, React.js, Node.js). This project features a robust frontend with Redux Toolkit and RTK Query for efficient state management and data fetching, ensuring a seamless shopping experience.
 
-🔗 **Live Demo:** [https://sauravfullstackmyntaclone.netlify.app/](https://sauravfullstackmyntaclone.netlify.app/)
+🔗 **Live Demo:** https://sauravfullstackmyntaclone.netlify.app/
 
 ## 🚀 Features
 
