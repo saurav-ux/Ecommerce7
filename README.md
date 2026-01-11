@@ -121,7 +121,7 @@ Contributions are welcome! Please follow these steps:
 
 
 
-*Created by [saurav-ux*](https://www.google.com/search?q=https://github.com/saurav-ux)
+*Created by [saurav-ux*](https://github.com/saurav-ux)
 
 ```
 
