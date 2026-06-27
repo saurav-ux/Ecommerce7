@@ -1,5 +1,5 @@
 import "./App.css";
-import React from "react";
+import React, { useState } from "react";
 import Navbarr from "./Components/Navbarr";
 import Crousel1 from "./Components/Crousell";
 import Container1 from "./Components/Container1";
@@ -12,6 +12,7 @@ import SignUp from "./Components/Signup";
 import LoginPag from "./Components/LoginPag";
 import ShowDetail from "./Components/ShowDetail";
 import Footer from "./Components/Footer";
+import Chatbot from "./Components/Chatbot";
 import {
   BrowserRouter as Router7,
   Switch,
@@ -19,6 +20,7 @@ import {
   Routes,
 } from "react-router-dom";
 function App() {
+  const [filteredProducts, setFilteredProducts] = useState(null);
 
   return (
     <>
@@ -30,10 +32,10 @@ function App() {
               <div>
                 <Navbarr />
                 <Crousel1 />
-                <Container4 />
+                <Container4 filteredItems={filteredProducts} />
                 <Container1 />
                 <Container2 />
-                <Container3 />            
+                <Container3 />
                 <Container5 />
                 <Footer />
               </div>
@@ -50,36 +52,34 @@ function App() {
             }
           />
           <Route
-           path="/signin"
-           element={
-             <>
-               <Navbarr />
-               <SignUp/>
-             </>
-           }
+            path="/signin"
+            element={
+              <>
+                <Navbarr />
+                <SignUp />
+              </>
+            }
           />
-            <Route
-           path="/login"
-           element={
-             <>
-               <Navbarr />
-               <LoginPag/>
-             </>
-           }
+          <Route
+            path="/login"
+            element={
+              <>
+                <Navbarr />
+                <LoginPag />
+              </>
+            }
           />
-
-           <Route
-           path="/detail"
-           element={
-             <>
-               <Navbarr />
-               <ShowDetail/>
-             </>
-           }
+          <Route
+            path="/detail"
+            element={
+              <>
+                <Navbarr />
+                <ShowDetail />
+              </>
+            }
           />
-          
         </Routes>
-        
+        <Chatbot onFilterProducts={setFilteredProducts} />
       </Router7>
     </>
   );

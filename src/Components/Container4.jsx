@@ -13,7 +13,7 @@ const Alert = React.forwardRef(function Alert(props, ref) {
   return <MuiAlert elevation={6} ref={ref} variant="filled" {...props} />;
 });
 
-const Container4 = () => {
+const Container4 = ({ filteredItems }) => {
   const [state, setState] = useState({
     open: false,
     vertical: "top",
@@ -23,13 +23,15 @@ const Container4 = () => {
   const [snakcolor, setSnackColor] = useState("success");
   const { vertical, horizontal, open } = state;
 
-    //-------------------RTK QueryFetch-------------------------
-    const {
-      data: containerData,
-      isLoading,
-      isError,
-    } = useContainer4apiDataQuery();
-    const{isError: loginIsError} = useGetLoginDataQuery()
+  //-------------------RTK QueryFetch-------------------------
+  const {
+    data: containerData,
+    isLoading,
+    isError,
+  } = useContainer4apiDataQuery();
+
+  const displayData = filteredItems ?? containerData;
+  const { isError: loginIsError } = useGetLoginDataQuery();
 
   const handleClose = () => {
     setState({ ...state, open: false });
@@ -37,15 +39,13 @@ const Container4 = () => {
 
   // const updatedArray = useSelector((state) => state.containerr.addproduct);
   const dispatch = useDispatch();
-  const navigate = useNavigate()
+  const navigate = useNavigate();
   const loginName = useSelector((state) => state.containerr.logstatus);
   const handleClick = (row) => {
-
-    if (loginName === "" || loginName === undefined ||loginIsError) {
+    if (loginName === "" || loginName === undefined || loginIsError) {
       setState({ vertical: "top", horizontal: "center", open: true });
       setSnackColor("error");
       setMessage("Please Login First");
-      
     } else {
       dispatch(
         addItem({
@@ -54,34 +54,37 @@ const Container4 = () => {
           imgName: row.imgName,
           cutprice: row.cutprice,
           off: row.off,
-        })
+        }),
       );
     }
   };
 
-  const handleImage = (row)=>{
+  const handleImage = (row) => {
     navigate("/detail", {
-      state: row
+      state: row,
     });
-  } 
-  
-
+  };
 
   return (
     <div id="content4" style={{ margin: 25 }}>
       <div className="con1header">
-        <h2>TRENDING IN INDIAN WEAR</h2>
+        <h2>
+          {filteredItems ? "FILTERED INDIAN WEAR" : "TRENDING IN INDIAN WEAR"}
+        </h2>
       </div>
       {isError ? "Somthing Went Wrong" : ""}
       {isLoading ? "Loading..." : ""}
 
       <div className="p-24 w-full">
         <Grid container spacing={4}>
-          {containerData?.map((row) => {
+          {displayData?.map((row) => {
             return (
               <Grid item xs={12} sm={6} md={4} lg={2} key={row._id}>
                 <Card className="cardSize">
-                  <div class="wishimg items_img" onClick={() => handleImage(row)}>
+                  <div
+                    class="wishimg items_img"
+                    onClick={() => handleImage(row)}
+                  >
                     <img src={row.imgName} alt="" />
                   </div>
                   <p>
