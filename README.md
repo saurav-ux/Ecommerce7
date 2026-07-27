@@ -1,6 +1,6 @@
-# 🛍️ AI-Powered Full Stack E-Commerce Platform
+# 🛍️ Agentic AI shopping assistant
 
-A modern **AI-powered full-stack e-commerce application** inspired by Myntra, built using the **MERN Stack (MongoDB, Express.js, React.js, Node.js)**. Along with a complete shopping experience, this project integrates an **Agentic AI Chatbot** powered by **LangGraph**, **FastAPI**, and **RAG (Retrieval-Augmented Generation)** to provide intelligent product search and customer support.
+A modern **Agentic AI shopping assistant** inspired by Myntra, built using the **MERN Stack (MongoDB, Express.js, React.js, Node.js)**. Along with a complete shopping experience, this project integrates an **Agentic AI Chatbot** powered by **LangGraph**, **FastAPI**, and **RAG (Retrieval-Augmented Generation)** to provide intelligent product search and customer support.
 
 🔗 **Live Demo:** https://sauravfullstackmyntaclone.netlify.app/
 
